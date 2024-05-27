@@ -4,6 +4,7 @@ import ProvinceRouter from "./controllers/province-controller.js"
 import CategoriesRouter from "./controllers/event_categories-controller.js"
 import LocationsRouter from "./controllers/locations-controller.js"
 import Event_locationRouter from "./controllers/event_location-controller.js"
+import UserRouter from "./controllers/users-controller.js"
 const app  = express();
 const port = 3000;
 
@@ -17,7 +18,7 @@ app.use('/api/provinces', ProvinceRouter);
 app.use('/api/locations', LocationsRouter);
 app.use('/api/event_category', CategoriesRouter);
 app.use('/api/event_locations', Event_locationRouter);
-// app.use('/api/user', UserRouter);
+app.use('/api/users', UserRouter);
 // app.use(unknownEndpoint);
 app.listen(port, () => {
   console.log(`"server" Listening on port ${port}`);
