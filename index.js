@@ -1,10 +1,10 @@
 import express from "express";
 import cors    from "cors";
-import ProvinceRouter from "./controllers/province-controller.js"
-import CategoriesRouter from "./controllers/event_categories-controller.js"
-import LocationsRouter from "./controllers/locations-controller.js"
-import Event_locationRouter from "./controllers/event_location-controller.js"
-import UserRouter from "./controllers/users-controller.js"
+import ProvinceRouter from "./src/controllers/province-controller.js";
+import CategoriesRouter from "./src/controllers/event_categories-controller.js"
+import LocationsRouter from "./src/controllers/locations-controller.js"
+import Event_locationRouter from "./src/controllers/event_location-controller.js"
+import UserRouter from "./src/controllers/users-controller.js"
 const app  = express();
 const port = 3000;
 

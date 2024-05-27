@@ -21,8 +21,8 @@ export default class UserRepository {
         return user;
     }
 
-    createAsync = async (entity) => {
-        console.log(`UserRepository.createAsync(${JSON.stringify(entity)})`); 
+    createUser = async (entity) => {
+        console.log(`UserRepository.createUser(${JSON.stringify(entity)})`); 
         let rowsAffected = 0;
         const client = new Client(DBConfig);
         try{
