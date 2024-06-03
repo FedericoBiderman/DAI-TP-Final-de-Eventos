@@ -5,7 +5,7 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.0
 
--- Started on 2024-05-13 08:45:21
+-- Started on 2024-06-03 10:47:18
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -17,25 +17,6 @@ SET check_function_bodies = false;
 SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
-
---
--- TOC entry 4 (class 2615 OID 2200)
--- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
---
-
-CREATE SCHEMA public;
-
-
-ALTER SCHEMA public OWNER TO pg_database_owner;
-
---
--- TOC entry 4876 (class 0 OID 0)
--- Dependencies: 4
--- Name: SCHEMA public; Type: COMMENT; Schema: -; Owner: pg_database_owner
---
-
-COMMENT ON SCHEMA public IS 'standard public schema';
-
 
 SET default_tablespace = '';
 
@@ -72,7 +53,7 @@ CREATE SEQUENCE public.event_categories_id_seq
 ALTER SEQUENCE public.event_categories_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4877 (class 0 OID 0)
+-- TOC entry 4867 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: event_categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -116,7 +97,7 @@ CREATE SEQUENCE public.event_enrollments_id_seq
 ALTER SEQUENCE public.event_enrollments_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4878 (class 0 OID 0)
+-- TOC entry 4868 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: event_enrollments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -160,7 +141,7 @@ CREATE SEQUENCE public.event_locations_id_seq
 ALTER SEQUENCE public.event_locations_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4879 (class 0 OID 0)
+-- TOC entry 4869 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: event_locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -199,7 +180,7 @@ CREATE SEQUENCE public.event_tags_id_seq
 ALTER SEQUENCE public.event_tags_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4880 (class 0 OID 0)
+-- TOC entry 4870 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: event_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -246,7 +227,7 @@ CREATE SEQUENCE public.events_id_seq
 ALTER SEQUENCE public.events_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4881 (class 0 OID 0)
+-- TOC entry 4871 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: events_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -287,7 +268,7 @@ CREATE SEQUENCE public.locations_id_seq
 ALTER SEQUENCE public.locations_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4882 (class 0 OID 0)
+-- TOC entry 4872 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: locations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -329,7 +310,7 @@ CREATE SEQUENCE public.provinces_id_seq
 ALTER SEQUENCE public.provinces_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4883 (class 0 OID 0)
+-- TOC entry 4873 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: provinces_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -367,7 +348,7 @@ CREATE SEQUENCE public.tags_id_seq
 ALTER SEQUENCE public.tags_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4884 (class 0 OID 0)
+-- TOC entry 4874 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -408,7 +389,7 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNER TO postgres;
 
 --
--- TOC entry 4885 (class 0 OID 0)
+-- TOC entry 4875 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -417,7 +398,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4674 (class 2604 OID 16451)
+-- TOC entry 4665 (class 2604 OID 16451)
 -- Name: event_categories id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -425,7 +406,7 @@ ALTER TABLE ONLY public.event_categories ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 4675 (class 2604 OID 16452)
+-- TOC entry 4666 (class 2604 OID 16452)
 -- Name: event_enrollments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -433,7 +414,7 @@ ALTER TABLE ONLY public.event_enrollments ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 4676 (class 2604 OID 16453)
+-- TOC entry 4667 (class 2604 OID 16453)
 -- Name: event_locations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -441,7 +422,7 @@ ALTER TABLE ONLY public.event_locations ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 4677 (class 2604 OID 16454)
+-- TOC entry 4668 (class 2604 OID 16454)
 -- Name: event_tags id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -449,7 +430,7 @@ ALTER TABLE ONLY public.event_tags ALTER COLUMN id SET DEFAULT nextval('public.e
 
 
 --
--- TOC entry 4678 (class 2604 OID 16455)
+-- TOC entry 4669 (class 2604 OID 16455)
 -- Name: events id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -457,7 +438,7 @@ ALTER TABLE ONLY public.events ALTER COLUMN id SET DEFAULT nextval('public.event
 
 
 --
--- TOC entry 4679 (class 2604 OID 16456)
+-- TOC entry 4670 (class 2604 OID 16456)
 -- Name: locations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -465,7 +446,7 @@ ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.lo
 
 
 --
--- TOC entry 4680 (class 2604 OID 16457)
+-- TOC entry 4671 (class 2604 OID 16457)
 -- Name: provinces id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -473,7 +454,7 @@ ALTER TABLE ONLY public.provinces ALTER COLUMN id SET DEFAULT nextval('public.pr
 
 
 --
--- TOC entry 4681 (class 2604 OID 16458)
+-- TOC entry 4672 (class 2604 OID 16458)
 -- Name: tags id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -481,7 +462,7 @@ ALTER TABLE ONLY public.tags ALTER COLUMN id SET DEFAULT nextval('public.tags_id
 
 
 --
--- TOC entry 4682 (class 2604 OID 16459)
+-- TOC entry 4673 (class 2604 OID 16459)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -489,31 +470,51 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4853 (class 0 OID 16399)
+-- TOC entry 4844 (class 0 OID 16399)
 -- Dependencies: 215
 -- Data for Name: event_categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.event_categories VALUES (5, 'Automovilisticos', 10);
+INSERT INTO public.event_categories VALUES (2, 'Culturales', 20);
+INSERT INTO public.event_categories VALUES (1, 'Deportivos', 30);
+INSERT INTO public.event_categories VALUES (8, 'Educativos', 40);
+INSERT INTO public.event_categories VALUES (6, 'Empresariales', 50);
+INSERT INTO public.event_categories VALUES (4, 'Gastronomicos', 60);
+INSERT INTO public.event_categories VALUES (3, 'Recitales', 70);
+INSERT INTO public.event_categories VALUES (7, 'Sociales', 80);
+INSERT INTO public.event_categories VALUES (10, 'Museos', 90);
+INSERT INTO public.event_categories VALUES (11, 'Obras Teatrales', 100);
 
 
 --
--- TOC entry 4855 (class 0 OID 16405)
+-- TOC entry 4846 (class 0 OID 16405)
 -- Dependencies: 217
 -- Data for Name: event_enrollments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.event_enrollments VALUES (1, 45, 14, NULL, '2024-05-08 00:00:00', NULL, NULL, NULL);
+INSERT INTO public.event_enrollments VALUES (2, 45, 20, NULL, '2024-04-09 00:00:00', NULL, NULL, NULL);
 
 
 --
--- TOC entry 4857 (class 0 OID 16411)
+-- TOC entry 4848 (class 0 OID 16411)
 -- Dependencies: 219
 -- Data for Name: event_locations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.event_locations VALUES (2, 3397, 'Movistar Arena', 'Humboldt 450, C1414 Cdad. Autónoma de Buenos Aires', '15000', -34.593488697344405, -58.44735886932156, 1);
+INSERT INTO public.event_locations VALUES (3, 3361, 'Estadio de Boca juniors', 'Brandsen 805, C1161 Cdad. Autónoma de Buenos Aires', '54000', -34.6348870412886, -58.364713384660796, 1);
+INSERT INTO public.event_locations VALUES (4, 3391, 'Estadio de River Plate', 'Av. Pres. Figueroa Alcorta 7597, C1428 Cdad. Autónoma de Buenos Aires', '84567', -34.54453950530218, -58.44976340223022, 1);
+INSERT INTO public.event_locations VALUES (5, 3355, 'Teatro Colón', 'Cerrito 628, Ciudad Autónoma de Buenos Aires, República Argentina', '2478', -34.600833067616335, -58.38356173216588, 1);
+INSERT INTO public.event_locations VALUES (6, 3354, 'Museo Nacional Ferroviario', 'Av. del Libertador 405', '1000', -34.58970739298685, -58.37839226506462, 1);
+INSERT INTO public.event_locations VALUES (7, 3742, 'Tecnópolis', 'Av. San Juan Bautista de la Salle 4500, Cdad. Autónoma de Buenos Aires', '13000', -34.55910875385725, -58.50589314720406, 1);
+INSERT INTO public.event_locations VALUES (8, 3355, 'Luna Park', 'Av. Eduardo Madero 470, C1106 Cdad. Autónoma de Buenos Aires', '8400', -34.601761864468756, -58.36891780311716, 1);
+INSERT INTO public.event_locations VALUES (9, 3355, 'Teatro Apolo', 'Av. Corrientes 1372, C1043 ABN, Cdad. Autónoma de Buenos Aires', '498', -34.60390880869589, -58.386146060786594, 1);
 
 
 --
--- TOC entry 4859 (class 0 OID 16417)
+-- TOC entry 4850 (class 0 OID 16417)
 -- Dependencies: 221
 -- Data for Name: event_tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -521,15 +522,84 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4861 (class 0 OID 16421)
+-- TOC entry 4852 (class 0 OID 16421)
 -- Dependencies: 223
 -- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.events VALUES (8, 'Toto', 'La legendaria banda estadounidense se presentará en Buenos Aires.', 3, 2, '2024-11-22 00:00:00', 120, 150000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (7, 'Tan Bionica', 'Tan Bionica agrega una noche mágica más: el show llega el 1 de agosto al Movistar Arena, con producción de DF Entertainment.', 3, 2, '2024-08-01 00:00:00', 120, 60000, B'0', 10000, 1);
+INSERT INTO public.events VALUES (6, 'Taylor Swift', 'Taylor Swift viene a Argentina el 9, 10 y 12 de noviembre de 2023.', 3, 4, '2023-11-09 00:00:00', 120, 50000, B'1', 120000, 1);
+INSERT INTO public.events VALUES (13, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-13 00:00:00', 140, 25000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (14, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-14 00:00:00', 140, 25000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (9, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-03 00:00:00', 120, 150000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (10, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-29 00:00:00', 120, 150000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (11, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-30 00:00:00', 120, 150000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (12, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-31 00:00:00', 120, 150000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (18, 'Luciano Pereyra', 'Luciano Pereyra en Tour Hasta el Alma', 3, 2, '2024-05-10 00:00:00', 100, 22000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (19, 'Luciano Pereyra', 'Luciano Pereyra en Tour Hasta el Alma', 3, 2, '2024-05-11 00:00:00', 100, 22000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (20, 'Luck Ra', 'El Baile del Año', 3, 2, '2024-05-16 00:00:00', 100, 22000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (21, 'Luck Ra', 'El Baile del Año', 3, 2, '2024-05-17 00:00:00', 100, 22000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (22, 'Miranda', 'Miranda! llega por primera vez al Movistar Arena de Buenos Aires el próximo 20, 21 y 22 de junio.', 3, 2, '2024-06-20 00:00:00', 100, 30000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (23, 'Miranda', 'Miranda! llega por primera vez al Movistar Arena de Buenos Aires el próximo 20, 21 y 22 de junio.', 3, 2, '2024-06-21 00:00:00', 100, 30000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (24, 'Miranda', 'Miranda! llega por primera vez al Movistar Arena de Buenos Aires el próximo 20, 21 y 22 de junio.', 3, 2, '2024-06-22 00:00:00', 100, 30000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (25, 'Tan Bionica', 'Tan Bionica agrega una noche mágica más: el show llega el 1 de agosto al Movistar Arena, con producción de DF Entertainment.', 3, 2, '2024-08-01 00:00:00', 100, 30000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (26, 'Ciro y Los Persas', 'Luego de cerrar 2023 con tres funciones agotadas, Ciro y los Persas regresan al Movistar Arena el 8 y 9 de agosto. Será la tercera ocasión en que se presenten en este estadio de la Ciudad de Buenos Aires.', 3, 2, '2024-08-08 00:00:00', 100, 30000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (27, 'Ciro y Los Persas', 'Luego de cerrar 2023 con tres funciones agotadas, Ciro y los Persas regresan al Movistar Arena el 8 y 9 de agosto. Será la tercera ocasión en que se presenten en este estadio de la Ciudad de Buenos Aires.', 3, 2, '2024-08-09 00:00:00', 100, 30000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (30, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-08 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (31, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-09 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (32, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-15 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (28, 'Cuarteto de Nos', 'El público de Argentina se hizo escuchar y cuando comenzaron los anuncios de fechas, reclamaron el suyo. Así que luego de agotar anticipadamente 2 Movistar Arena en menos de un año, Cuarteto cumple y anuncia su fecha para Buenos Aires el día sábado 31 de Agosto a las 21:00hs en el Movistar Arena', 3, 2, '2024-08-31 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (29, 'Cuarteto de Nos', 'El público de Argentina se hizo escuchar y cuando comenzaron los anuncios de fechas, reclamaron el suyo. Así que luego de agotar anticipadamente 2 Movistar Arena en menos de un año, Cuarteto cumple y anuncia su fecha para Buenos Aires el día sábado 31 de Agosto a las 21:00hs en el Movistar Arena', 3, 2, '2024-09-01 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (33, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-16 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (34, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-21 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (35, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-22 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (36, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-23 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (37, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-24 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (38, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-25 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (39, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-26 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (40, 'KEANE', 'Una de las bandas más importantes de Gran Bretaña vuelve para interpretar uno de los álbumes más importantes de su carrera Hopes and Fears.', 3, 2, '2024-11-14 00:00:00', 100, 60000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (41, 'David Bisbal', 'David Bisbal agotó todas sus localidades para su esperado regreso y agregó una nueva fecha en Movistar Arena para 2024.', 3, 2, '2024-11-21 00:00:00', 100, 70000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (15, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-15 00:00:00', 140, 25000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (16, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-20 00:00:00', 140, 25000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (17, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-21 00:00:00', 140, 25000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (42, 'Taylor Swift', 'Taylor Swift viene a Argentina el 9, 10 y 12 de noviembre de 2023.', 3, 4, '2023-11-10 03:00:00', 120, 50000, B'1', 120000, 1);
+INSERT INTO public.events VALUES (43, 'Taylor Swift', 'Taylor Swift viene a Argentina el 9, 10 y 12 de noviembre de 2023.', 3, 4, '2023-11-12 03:00:00', 120, 50000, B'1', 120000, 1);
+INSERT INTO public.events VALUES (44, 'Expo Autos Multimarca en el Museo Ferroviario', 'Organizado por el Club Taunus Argentina, la propuesta es disfrutar de una muestra especial que combina nuestro rico acervo ferroviario con la elegancia y el encanto de los autos clásicos. Además, habrá food trucks para saborear riquísimos sabores regionales.
+Participan el Club Amigos del Torino, Reunidos por el 600 y el Club del 1500 Oficial.', 10, 6, '2024-05-25 00:00:00', 90, 2000, B'1', 40, 1);
+INSERT INTO public.events VALUES (45, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-17 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (46, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-18 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (47, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-19 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (48, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-20 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (49, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-21 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (50, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-22 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (51, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-23 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (52, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-24 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (53, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-25 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (54, 'Exposición del automóvil en Tecnópolis', 'Exposición del automóvil incluirá autos de alta gama, clásicos americanos y japoneses, deportivos, exóticos, hot rod, street rod, rat rod, baquets, customizados y tunning.
+La muestra tendrá motos clásicas, choperas, deportivas y de calle, además de camionetas 4×4, camiones, buses, colectivos, autos de películas y 1/4 de milla.', 5, 7, '2024-05-26 00:00:00', 300, 10000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (55, 'Fátima Flores', 'En Concierto - Una Noche Especial. Fátima Florez, además de su destacado papel como directora y coreógrafa del espectáculo, también brilla en el escenario con su versatilidad artística, encarnando diversos personajes con maestría y llevando al público a un mundo de fantasía y realidad. Con una puesta en escena deslumbrante que combina música en vivo, un gran cuerpo de baile, coreografías vibrantes y actuaciones magistrales.', 11, 8, '2024-06-15 00:00:00', 110, 8000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (56, 'Fabiana Cantilo', 'Apocalipsis No - La voz femenina más emblemática del rock nacional no solo llenó tres Gran Rex y dio un espectacular show en el festival de la confluencia en Neuquén. Ahora Fabiana sorprende con un anuncio apocalíptico, donde el público podrá disfrutar de una nueva experiencia renovada e impactante, donde nos deleitará nuevamente con todos sus éxitos cosechados durante más de 40 años de carrera, en el mítico Estadio Luna Park el 21 de junio.', 11, 8, '2024-06-21 00:00:00', 110, 15000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (57, 'Lisandro Aristimuño', 'EL ROSTRO DE LOS ACANTILADOS - A 20 años de su álbum debut, recorrerá el país para presentar sus nuevo álbum (considerando entre los 10 mejores discos del 2023 por la Revista Rolling Stone Argentina) y otras canciones clasicas y desta- cadas de su amplio repertorio.', 11, 8, '2024-06-01 00:00:00', 110, 18000, B'1', 8000, 1);
+INSERT INTO public.events VALUES (58, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-08 00:00:00', 110, 10000, B'1', 450, 1);
+INSERT INTO public.events VALUES (59, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-09 00:00:00', 110, 10000, B'1', 450, 1);
+INSERT INTO public.events VALUES (60, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-13 00:00:00', 110, 10000, B'1', 450, 1);
+INSERT INTO public.events VALUES (61, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-14 00:00:00', 110, 10000, B'1', 450, 1);
+INSERT INTO public.events VALUES (62, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-15 00:00:00', 110, 10000, B'1', 450, 1);
+INSERT INTO public.events VALUES (63, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-16 00:00:00', 110, 10000, B'1', 450, 1);
 
 
 --
--- TOC entry 4863 (class 0 OID 16427)
+-- TOC entry 4854 (class 0 OID 16427)
 -- Dependencies: 225
 -- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4574,7 +4644,7 @@ INSERT INTO public.locations VALUES (4037, 'Yerba Buena - Marcos Paz', 90, -26.8
 
 
 --
--- TOC entry 4865 (class 0 OID 16433)
+-- TOC entry 4856 (class 0 OID 16433)
 -- Dependencies: 227
 -- Data for Name: provinces; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4606,7 +4676,7 @@ INSERT INTO public.provinces VALUES (94, 'Tierra del Fuego, Antártida e Islas d
 
 
 --
--- TOC entry 4867 (class 0 OID 16439)
+-- TOC entry 4858 (class 0 OID 16439)
 -- Dependencies: 229
 -- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4614,16 +4684,132 @@ INSERT INTO public.provinces VALUES (94, 'Tierra del Fuego, Antártida e Islas d
 
 
 --
--- TOC entry 4869 (class 0 OID 16445)
+-- TOC entry 4860 (class 0 OID 16445)
 -- Dependencies: 231
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO public.users VALUES (1, 'Pablo', 'Ulman', 'polshu@polshu.com.ar', 'pablito');
+INSERT INTO public.users VALUES (2, 'Julian', 'Schiffer', 'julian.schiffer@ort.edu.ar', 'julshi102');
+INSERT INTO public.users VALUES (12, 'Ilán', 'Averbuch', 'ilán@gmail.com', 'ilaave112');
+INSERT INTO public.users VALUES (3, 'Angeles', 'Peña', 'angeles.pena@ort.edu.ar', 'angpeñ103');
+INSERT INTO public.users VALUES (4, 'Jesica', 'Rodriguez', 'jesica.rodriguez@ort.edu.ar', 'jesrod104');
+INSERT INTO public.users VALUES (8, 'Matías', 'Aboudara', 'matías@gmail.com', 'matabo108');
+INSERT INTO public.users VALUES (9, 'Marco', 'Ambricca', 'marco@gmail.com', 'maramb109');
+INSERT INTO public.users VALUES (10, 'Martin', 'Aran', 'martin@gmail.com', 'marara110');
+INSERT INTO public.users VALUES (11, 'Emilia Inés', 'Armeno', 'emiliainés@gmail.com', 'emiarm111');
+INSERT INTO public.users VALUES (13, 'Nicolás David', 'Becherman', 'nicolásdavid@gmail.com', 'nicbec113');
+INSERT INTO public.users VALUES (14, 'Federico Eitan', 'Biderman', 'federicoeitan@gmail.com', 'fedbid114');
+INSERT INTO public.users VALUES (15, 'Felipe', 'Blaustein', 'felipe@gmail.com', 'felbla115');
+INSERT INTO public.users VALUES (16, 'Agostina', 'Bottarini', 'agostina@gmail.com', 'agobot116');
+INSERT INTO public.users VALUES (17, 'Ezequiel Alejandro', 'Boulet', 'ezequielalejandro@gmail.com', 'ezebou117');
+INSERT INTO public.users VALUES (18, 'Franco Iair', 'Bronsztein Castellan', 'francoiair@gmail.com', 'frabro118');
+INSERT INTO public.users VALUES (19, 'Nicole', 'Brunstein', 'nicole@gmail.com', 'nicbru119');
+INSERT INTO public.users VALUES (20, 'Benicio Uriel', 'Bursztyn', 'beniciouriel@gmail.com', 'benbur120');
+INSERT INTO public.users VALUES (21, 'Santiago Mateo', 'Butler', 'santiagomateo@gmail.com', 'sanbut121');
+INSERT INTO public.users VALUES (22, 'Santiago', 'Cañete Sztejn', 'santiago@gmail.com', 'sancañ122');
+INSERT INTO public.users VALUES (23, 'Ariana Sofia', 'Castro', 'arianasofia@gmail.com', 'aricas123');
+INSERT INTO public.users VALUES (24, 'Roni', 'Chmielevsky', 'roni@gmail.com', 'ronchm124');
+INSERT INTO public.users VALUES (26, 'Mateo', 'Cottet', 'mateo@gmail.com', 'matcot126');
+INSERT INTO public.users VALUES (52, 'Julieta', 'Izbicki', 'julieta@gmail.com', 'julizb152');
+INSERT INTO public.users VALUES (53, 'Ivan Federico', 'Joaquin', 'ivanfederico@gmail.com', 'ivajoa153');
+INSERT INTO public.users VALUES (54, 'Alan Nataniel', 'Jolodovsky', 'alannataniel@gmail.com', 'alajol154');
+INSERT INTO public.users VALUES (55, 'Tomás', 'Kalinscky', 'tomás@gmail.com', 'tomkal155');
+INSERT INTO public.users VALUES (56, 'Ulises Martín', 'Kaltman', 'ulisesmartín@gmail.com', 'ulikal156');
+INSERT INTO public.users VALUES (57, 'Raian Ju Ho', 'Kim', 'raianjuho@gmail.com', 'raikim157');
+INSERT INTO public.users VALUES (58, 'Axel Nicolás', 'Kleiman', 'axelnicolás@gmail.com', 'axekle158');
+INSERT INTO public.users VALUES (117, 'Lautaro Fernando', 'Yukelson', 'lautarofernando@gmail.com', 'lauyuk217');
+INSERT INTO public.users VALUES (118, 'Facundo Manuel', 'Yuzefoff', 'facundomanuel@gmail.com', 'facyuz218');
+INSERT INTO public.users VALUES (119, 'Tobias', 'Zaselsky', 'tobias@gmail.com', 'tobzas219');
+INSERT INTO public.users VALUES (40, 'Benjamín Rolando', 'Feldman Agüero', 'benjamínrolando@gmail.com', 'benfel140');
+INSERT INTO public.users VALUES (41, 'Tomas', 'Fernandez Zabala', 'tomas@gmail.com', 'tomfer141');
+INSERT INTO public.users VALUES (42, 'Santiago', 'Ferrara', 'santiago@gmail.com', 'sanfer142');
+INSERT INTO public.users VALUES (43, 'Iván', 'Frankowski', 'iván@gmail.com', 'iváfra143');
+INSERT INTO public.users VALUES (44, 'Julian', 'Furland Otero', 'julian@gmail.com', 'julfur144');
+INSERT INTO public.users VALUES (45, 'Ezequiel', 'Gajer Solmesky', 'ezequiel@gmail.com', 'ezegaj145');
+INSERT INTO public.users VALUES (46, 'Maximiliano', 'Garbarino', 'maximiliano@gmail.com', 'maxgar146');
+INSERT INTO public.users VALUES (47, 'Maria Emilia', 'Gayoso Martinez', 'mariaemilia@gmail.com', 'margay147');
+INSERT INTO public.users VALUES (48, 'Facundo', 'Giraudi Riverós', 'facundo@gmail.com', 'facgir148');
+INSERT INTO public.users VALUES (49, 'Uma Catarina', 'Gotfryd', 'umacatarina@gmail.com', 'umagot149');
+INSERT INTO public.users VALUES (50, 'Olivia', 'Granovsky', 'olivia@gmail.com', 'oligra150');
+INSERT INTO public.users VALUES (51, 'Bruno John', 'Gurwicz', 'brunojohn@gmail.com', 'brugur151');
+INSERT INTO public.users VALUES (25, 'Guido', 'Cohen Falah', 'guido@gmail.com', 'guicoh125');
+INSERT INTO public.users VALUES (27, 'Uriel Gregorio', 'Cwirenbaum', 'urielgregorio@gmail.com', 'uricwi127');
+INSERT INTO public.users VALUES (59, 'Lucas Nicolas', 'Koziupa', 'lucasnicolas@gmail.com', 'luckoz159');
+INSERT INTO public.users VALUES (60, 'Maia', 'Kupersmid', 'maia@gmail.com', 'maikup160');
+INSERT INTO public.users VALUES (61, 'Yisroel Yehoshua', 'Kurtz', 'yisroelyehoshua@gmail.com', 'yiskur161');
+INSERT INTO public.users VALUES (62, 'Ramiro Paolo', 'Kwon', 'ramiropaolo@gmail.com', 'ramkwo162');
+INSERT INTO public.users VALUES (63, 'Joaquin', 'Lasca', 'joaquin@gmail.com', 'joalas163');
+INSERT INTO public.users VALUES (64, 'Ivan', 'Latascheff', 'ivan@gmail.com', 'ivalat164');
+INSERT INTO public.users VALUES (65, 'Llauro Julian Eric', 'Lavera', 'llaurojulianeric@gmail.com', 'llalav165');
+INSERT INTO public.users VALUES (66, 'Tomas Dylan', 'Lerman', 'tomasdylan@gmail.com', 'tomler166');
+INSERT INTO public.users VALUES (67, 'Yannick', 'Lerner', 'yannick@gmail.com', 'yanler167');
+INSERT INTO public.users VALUES (68, 'Ian Gabriel', 'Levin', 'iangabriel@gmail.com', 'ianlev168');
+INSERT INTO public.users VALUES (69, 'Thiago Nicolás', 'Lewin', 'thiagonicolás@gmail.com', 'thilew169');
+INSERT INTO public.users VALUES (70, 'Julián', 'Lifschitz', 'julián@gmail.com', 'jullif170');
+INSERT INTO public.users VALUES (71, 'Luca', 'Listingart Maekanehisa', 'luca@gmail.com', 'luclis171');
+INSERT INTO public.users VALUES (72, 'Santino', 'Lo Giudice', 'santino@gmail.com', 'sanlo172');
+INSERT INTO public.users VALUES (73, 'Camila Belén', 'Lo Iacono', 'camilabelén@gmail.com', 'camlo173');
+INSERT INTO public.users VALUES (74, 'Dana Leila', 'Mandelbaum', 'danaleila@gmail.com', 'danman174');
+INSERT INTO public.users VALUES (75, 'Marcos Paul', 'Martinez Del Franco', 'marcospaul@gmail.com', 'marmar175');
+INSERT INTO public.users VALUES (76, 'Matias Francisco', 'Mazzeo', 'matiasfrancisco@gmail.com', 'matmaz176');
+INSERT INTO public.users VALUES (77, 'Marcos', 'Mellebovsky', 'marcos@gmail.com', 'marmel177');
+INSERT INTO public.users VALUES (78, 'Joaquin', 'Naccache', 'joaquin@gmail.com', 'joanac178');
+INSERT INTO public.users VALUES (79, 'Tomas', 'Naccache', 'tomas@gmail.com', 'tomnac179');
+INSERT INTO public.users VALUES (80, 'Zarek Alexis', 'Nazar Dutka', 'zarekalexis@gmail.com', 'zarnaz180');
+INSERT INTO public.users VALUES (81, 'Tomas', 'Neimerman Grosso', 'tomas@gmail.com', 'tomnei181');
+INSERT INTO public.users VALUES (82, 'Federico Ilan', 'Ostrovsky', 'federicoilan@gmail.com', 'fedost182');
+INSERT INTO public.users VALUES (83, 'Thiago', 'Palachi', 'thiago@gmail.com', 'thipal183');
+INSERT INTO public.users VALUES (84, 'Santiago Alejandro', 'Palma', 'santiagoalejandro@gmail.com', 'sanpal184');
+INSERT INTO public.users VALUES (85, 'Franco', 'Pasquale Sanguinetti', 'franco@gmail.com', 'frapas185');
+INSERT INTO public.users VALUES (86, 'Joaquin', 'Piva', 'joaquin@gmail.com', 'joapiv186');
+INSERT INTO public.users VALUES (87, 'Agustina', 'Potasman', 'agustina@gmail.com', 'agupot187');
+INSERT INTO public.users VALUES (93, 'Ian', 'Roitman', 'ian@gmail.com', 'ianroi193');
+INSERT INTO public.users VALUES (88, 'Martin Ezequiel', 'Raber', 'martinezequiel@gmail.com', 'marrab188');
+INSERT INTO public.users VALUES (89, 'Franco', 'Ragusa', 'franco@gmail.com', 'frarag189');
+INSERT INTO public.users VALUES (90, 'Manuel', 'Ramasso', 'manuel@gmail.com', 'manram190');
+INSERT INTO public.users VALUES (91, 'Nicolas Iair', 'Reifut', 'nicolasiair@gmail.com', 'nicrei191');
+INSERT INTO public.users VALUES (92, 'Micaela', 'Riccardi', 'micaela@gmail.com', 'micric192');
+INSERT INTO public.users VALUES (94, 'Lucas Uriel', 'Rosenbaum', 'lucasuriel@gmail.com', 'lucros194');
+INSERT INTO public.users VALUES (95, 'Noah Demian', 'Rotbard', 'noahdemian@gmail.com', 'noarot195');
+INSERT INTO public.users VALUES (96, 'Vicente', 'Ruiz Barrea', 'vicente@gmail.com', 'vicrui196');
+INSERT INTO public.users VALUES (97, 'Yael', 'Saroka', 'yael@gmail.com', 'yaesar197');
+INSERT INTO public.users VALUES (98, 'Martin', 'Sedam Dugatkin', 'martin@gmail.com', 'marsed198');
+INSERT INTO public.users VALUES (99, 'Tiago', 'Shebar', 'tiago@gmail.com', 'tiashe199');
+INSERT INTO public.users VALUES (100, 'Maximiliano', 'Sher', 'maximiliano@gmail.com', 'maxshe200');
+INSERT INTO public.users VALUES (101, 'Dante', 'Siegel', 'dante@gmail.com', 'dansie201');
+INSERT INTO public.users VALUES (102, 'Nicolas Gabriel', 'Simone', 'nicolasgabriel@gmail.com', 'nicsim202');
+INSERT INTO public.users VALUES (28, 'Martín Eliezer', 'Cygiel', 'martíneliezer@gmail.com', 'marcyg128');
+INSERT INTO public.users VALUES (29, 'Tomas', 'Czernuszka Schirmer', 'tomas@gmail.com', 'tomcze129');
+INSERT INTO public.users VALUES (30, 'Milena Avril', 'Dawidowicz', 'milenaavril@gmail.com', 'mildaw130');
+INSERT INTO public.users VALUES (31, 'Tomás Leonel', 'Degese', 'tomásleonel@gmail.com', 'tomdeg131');
+INSERT INTO public.users VALUES (32, 'Korob Noah', 'Denenberg', 'korobnoah@gmail.com', 'korden132');
+INSERT INTO public.users VALUES (33, 'Lucas Yoel', 'Dercye Flomin', 'lucasyoel@gmail.com', 'lucder133');
+INSERT INTO public.users VALUES (34, 'Olivia Gala', 'Di Carlo Matsuo', 'oliviagala@gmail.com', 'olidi134');
+INSERT INTO public.users VALUES (35, 'Francisco', 'Dominguez Navarro', 'francisco@gmail.com', 'fradom135');
+INSERT INTO public.users VALUES (36, 'Tamara Yael', 'Dratler', 'tamarayael@gmail.com', 'tamdra136');
+INSERT INTO public.users VALUES (37, 'Alex', 'Droblas', 'alex@gmail.com', 'aledro137');
+INSERT INTO public.users VALUES (38, 'Matías Nicolás', 'Esteves', 'matíasnicolás@gmail.com', 'matest138');
+INSERT INTO public.users VALUES (39, 'Lara Micaela', 'Farina', 'laramicaela@gmail.com', 'larfar139');
+INSERT INTO public.users VALUES (103, 'Iair Barak', 'Steimberg', 'iairbarak@gmail.com', 'iaiste203');
+INSERT INTO public.users VALUES (104, 'Ramiro', 'Sued', 'ramiro@gmail.com', 'ramsue204');
+INSERT INTO public.users VALUES (105, 'Simón', 'Suken Rosenberg', 'simón@gmail.com', 'simsuk205');
+INSERT INTO public.users VALUES (106, 'Mateo', 'Sverdloff', 'mateo@gmail.com', 'matsve206');
+INSERT INTO public.users VALUES (107, 'Matias Ivan', 'Szabo', 'matiasivan@gmail.com', 'matsza207');
+INSERT INTO public.users VALUES (108, 'Eitan Gabriel', 'Toporovskaja', 'eitangabriel@gmail.com', 'eittop208');
+INSERT INTO public.users VALUES (109, 'Amélie', 'Torre Walsh', 'amélie@gmail.com', 'amétor209');
+INSERT INTO public.users VALUES (110, 'Lola', 'Vazquez', 'lola@gmail.com', 'lolvaz210');
+INSERT INTO public.users VALUES (111, 'Dante', 'Verdi Gutierrez', 'dante@gmail.com', 'danver211');
+INSERT INTO public.users VALUES (112, 'Sasha Mia', 'Vilamowski', 'sashamia@gmail.com', 'sasvil212');
+INSERT INTO public.users VALUES (113, 'Valentina Orit', 'Vugin', 'valentinaorit@gmail.com', 'valvug213');
+INSERT INTO public.users VALUES (114, 'Julián', 'Wegman', 'julián@gmail.com', 'julweg214');
+INSERT INTO public.users VALUES (115, 'David Ezequiel', 'Weissbrod', 'davidezequiel@gmail.com', 'davwei215');
+INSERT INTO public.users VALUES (116, 'Agustin', 'Yudcovsky', 'agustin@gmail.com', 'aguyud216');
+INSERT INTO public.users VALUES (120, 'Pablo Fabrizio', 'Zurbano', 'pablofabrizio@gmail.com', 'pabzur220');
 
 
 --
--- TOC entry 4886 (class 0 OID 0)
+-- TOC entry 4876 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: event_categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4632,16 +4818,16 @@ SELECT pg_catalog.setval('public.event_categories_id_seq', 1, false);
 
 
 --
--- TOC entry 4887 (class 0 OID 0)
+-- TOC entry 4877 (class 0 OID 0)
 -- Dependencies: 218
 -- Name: event_enrollments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.event_enrollments_id_seq', 1, false);
+SELECT pg_catalog.setval('public.event_enrollments_id_seq', 2, true);
 
 
 --
--- TOC entry 4888 (class 0 OID 0)
+-- TOC entry 4878 (class 0 OID 0)
 -- Dependencies: 220
 -- Name: event_locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4650,7 +4836,7 @@ SELECT pg_catalog.setval('public.event_locations_id_seq', 1, false);
 
 
 --
--- TOC entry 4889 (class 0 OID 0)
+-- TOC entry 4879 (class 0 OID 0)
 -- Dependencies: 222
 -- Name: event_tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4659,7 +4845,7 @@ SELECT pg_catalog.setval('public.event_tags_id_seq', 1, false);
 
 
 --
--- TOC entry 4890 (class 0 OID 0)
+-- TOC entry 4880 (class 0 OID 0)
 -- Dependencies: 224
 -- Name: events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4668,7 +4854,7 @@ SELECT pg_catalog.setval('public.events_id_seq', 1, false);
 
 
 --
--- TOC entry 4891 (class 0 OID 0)
+-- TOC entry 4881 (class 0 OID 0)
 -- Dependencies: 226
 -- Name: locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4677,7 +4863,7 @@ SELECT pg_catalog.setval('public.locations_id_seq', 4037, true);
 
 
 --
--- TOC entry 4892 (class 0 OID 0)
+-- TOC entry 4882 (class 0 OID 0)
 -- Dependencies: 228
 -- Name: provinces_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4686,7 +4872,7 @@ SELECT pg_catalog.setval('public.provinces_id_seq', 95, true);
 
 
 --
--- TOC entry 4893 (class 0 OID 0)
+-- TOC entry 4883 (class 0 OID 0)
 -- Dependencies: 230
 -- Name: tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4695,7 +4881,7 @@ SELECT pg_catalog.setval('public.tags_id_seq', 1, false);
 
 
 --
--- TOC entry 4894 (class 0 OID 0)
+-- TOC entry 4884 (class 0 OID 0)
 -- Dependencies: 232
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -4704,7 +4890,7 @@ SELECT pg_catalog.setval('public.users_id_seq', 1, false);
 
 
 --
--- TOC entry 4684 (class 2606 OID 16461)
+-- TOC entry 4675 (class 2606 OID 16461)
 -- Name: event_categories PK_EventCategories; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4713,7 +4899,7 @@ ALTER TABLE ONLY public.event_categories
 
 
 --
--- TOC entry 4686 (class 2606 OID 16463)
+-- TOC entry 4677 (class 2606 OID 16463)
 -- Name: event_enrollments PK_EventEnrollments; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4722,7 +4908,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4688 (class 2606 OID 16465)
+-- TOC entry 4679 (class 2606 OID 16465)
 -- Name: event_locations PK_EventLocations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4731,7 +4917,7 @@ ALTER TABLE ONLY public.event_locations
 
 
 --
--- TOC entry 4690 (class 2606 OID 16467)
+-- TOC entry 4681 (class 2606 OID 16467)
 -- Name: event_tags PK_EventTags; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4740,7 +4926,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4692 (class 2606 OID 16469)
+-- TOC entry 4683 (class 2606 OID 16469)
 -- Name: events PK_Events; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4749,7 +4935,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4694 (class 2606 OID 16471)
+-- TOC entry 4685 (class 2606 OID 16471)
 -- Name: locations PK_Locations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4758,7 +4944,7 @@ ALTER TABLE ONLY public.locations
 
 
 --
--- TOC entry 4696 (class 2606 OID 16473)
+-- TOC entry 4687 (class 2606 OID 16473)
 -- Name: provinces PK_Provinces ; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4767,7 +4953,7 @@ ALTER TABLE ONLY public.provinces
 
 
 --
--- TOC entry 4698 (class 2606 OID 16475)
+-- TOC entry 4689 (class 2606 OID 16475)
 -- Name: tags PK_Tags; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4776,7 +4962,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- TOC entry 4700 (class 2606 OID 16477)
+-- TOC entry 4691 (class 2606 OID 16477)
 -- Name: users PK_Users; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4785,7 +4971,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4701 (class 2606 OID 16478)
+-- TOC entry 4692 (class 2606 OID 16478)
 -- Name: event_enrollments fk_event_enrollments_events; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4794,7 +4980,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4702 (class 2606 OID 16483)
+-- TOC entry 4693 (class 2606 OID 16483)
 -- Name: event_enrollments fk_event_enrollments_users; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4803,7 +4989,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4703 (class 2606 OID 16488)
+-- TOC entry 4694 (class 2606 OID 16488)
 -- Name: event_locations fk_event_locations_locations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4812,7 +4998,7 @@ ALTER TABLE ONLY public.event_locations
 
 
 --
--- TOC entry 4704 (class 2606 OID 16493)
+-- TOC entry 4695 (class 2606 OID 16493)
 -- Name: event_tags fk_event_tags_events; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4821,7 +5007,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4705 (class 2606 OID 16498)
+-- TOC entry 4696 (class 2606 OID 16498)
 -- Name: event_tags fk_event_tags_tags; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4830,7 +5016,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4706 (class 2606 OID 16503)
+-- TOC entry 4697 (class 2606 OID 16503)
 -- Name: events fk_events_event_categories; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4839,7 +5025,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4707 (class 2606 OID 16508)
+-- TOC entry 4698 (class 2606 OID 16508)
 -- Name: events fk_events_event_locations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4848,7 +5034,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4708 (class 2606 OID 16513)
+-- TOC entry 4699 (class 2606 OID 16513)
 -- Name: events fk_events_users; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4857,7 +5043,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4709 (class 2606 OID 16518)
+-- TOC entry 4700 (class 2606 OID 16518)
 -- Name: locations fk_locations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4865,7 +5051,7 @@ ALTER TABLE ONLY public.locations
     ADD CONSTRAINT fk_locations_provinces FOREIGN KEY (id_province) REFERENCES public.provinces(id);
 
 
--- Completed on 2024-05-13 08:45:21
+-- Completed on 2024-06-03 10:47:18
 
 --
 -- PostgreSQL database dump complete
