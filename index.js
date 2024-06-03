@@ -1,9 +1,11 @@
 import express from "express";
 import cors    from "cors";
 import ProvinceRouter from "./src/controllers/province-controller.js";
+import EventRouter from "./src/controllers/events-controller.js";
 import CategoriesRouter from "./src/controllers/event_categories-controller.js"
 import LocationsRouter from "./src/controllers/locations-controller.js"
 import Event_locationRouter from "./src/controllers/event_location-controller.js"
+import Event_enrollmentRouter from "./src/controllers/event_enrollment-controller.js"
 import UserRouter from "./src/controllers/users-controller.js"
 const app  = express();
 const port = 3000;
@@ -13,12 +15,13 @@ const port = 3000;
 app.use(cors());
 app.use(express.json());
 // app.use('/front', express.static('public'));
-// app.use('/api/event', EventRouter);
+app.use('/api/event', EventRouter);
 app.use('/api/provinces', ProvinceRouter);
 app.use('/api/locations', LocationsRouter);
+app.use('/api/users', UserRouter);
 app.use('/api/event_category', CategoriesRouter);
 app.use('/api/event_locations', Event_locationRouter);
-app.use('/api/users', UserRouter);
+app.use('/api/event_enrollments', Event_enrollmentRouter);
 // app.use(unknownEndpoint);
 app.listen(port, () => {
   console.log(`"server" Listening on port ${port}`);
