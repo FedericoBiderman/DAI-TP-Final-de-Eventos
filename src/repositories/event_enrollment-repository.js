@@ -36,5 +36,22 @@ export default class Event_enrollmentRepository{
         }
         return returnArray;
     }
+
+    deleteByIdAsync = async (id) => {
+        console.log(`Event_enrollmentRepository.deleteByIdAsync(${id})`);
+        let rowsAffected = 0;
+        const client = new Client(DBConfig);
+        try{
+            await client.connect();
+            const sql = `DELETE FROM event_enrollments WHERE id=$1`;
+            const values = [id];
+            const result = await client.query(sql, values);
+            await client.end();
+          rowsAffected = result.rowCount;
+        } catch (error) {
+            console.log(error);
+        }
+        return rowsAffected;
+    }
 }
 

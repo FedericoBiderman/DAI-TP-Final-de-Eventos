@@ -15,7 +15,7 @@
     "ej08": "node src/ej08.js",
     "matematica": "src/modules/matematica.js",
     "Alumno": "src/models/alumno.js",
-    "index": "node index.js"
+    "index": "nodemon index.js"
   },
   "author": "Fede y Beni",
   "license": "ISC",

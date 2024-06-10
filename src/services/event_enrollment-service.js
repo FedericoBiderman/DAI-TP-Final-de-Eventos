@@ -7,4 +7,10 @@ export default class Event_enrollmentService {
     const returnArray = await repo.getAllAsync();
     return returnArray;
   }
+
+  deleteByIdAsync = async () => {
+    const repo = new Event_enrollmentRepository();
+    const returnArray = await repo.deleteByIdAsync();
+    return returnArray;
+  }
 }

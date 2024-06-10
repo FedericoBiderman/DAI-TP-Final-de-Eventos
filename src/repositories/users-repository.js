@@ -4,12 +4,12 @@ const { Client } = pkg;
 
 export default class UserRepository {
     getAllAsync = async(username, password) => {
-        console.log(`UserRepository.getAllAsync(${username, password})`);
+        console.log(`UserRepository.getAllAsync(${username}, ${password})`);
         let user = null;
         const client = new Client(DBConfig);
         try{
             await client.connect();
-            const sql = `SELECT * FROM users WHERE username = $1 && password = $2 `;
+            const sql = `SELECT * FROM users WHERE username = $1 AND password = $2 `;
             const values= [username, password];
             const result = await client.query(sql, values);
             await client.end();

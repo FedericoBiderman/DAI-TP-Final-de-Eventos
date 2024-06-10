@@ -1,9 +1,9 @@
 import UserRepository from './../repositories/users-repository.js';
 
 export default class ProvinceService {
-  getAllAsync = async () => {
+  getAllAsync = async (username, password) => {
     const repo = new UserRepository();
-    const returnArray = await repo.getAllAsync();
+    const returnArray = await repo.getAllAsync(username, password);
     return returnArray;
   }
   
