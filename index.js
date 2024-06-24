@@ -16,12 +16,12 @@ app.use(cors());
 app.use(express.json());
 // app.use('/front', express.static('public'));
 app.use('/api/event', EventRouter);
-app.use('/api/provinces', ProvinceRouter);
-app.use('/api/locations', LocationsRouter);
-app.use('/api/users', UserRouter);
-app.use('/api/event_category', CategoriesRouter);
-app.use('/api/event_locations', Event_locationRouter);
-app.use('/api/event_enrollments', Event_enrollmentRouter);
+app.use('/api/event', Event_enrollmentRouter);
+app.use('/api/province', ProvinceRouter);
+app.use('/api/location', LocationsRouter);
+app.use('/api/user', UserRouter);
+app.use('/api/event-category', CategoriesRouter);
+app.use('/api/event-location', Event_locationRouter);
 // app.use(unknownEndpoint);
 app.listen(port, () => {
   console.log(`"server" Listening on port ${port}`);

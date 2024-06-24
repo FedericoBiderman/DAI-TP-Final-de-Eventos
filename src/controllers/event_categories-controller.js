@@ -29,15 +29,15 @@ router.get('/:id', async (req, res) => {
 
 
 router.post('', async (req, res) => {
-  let entity = req.body;
-  const registrosAfectados = await svc.createAsync(entity);
-  if (entity.name == null || entity.name.length < 3)
-  {
-    return res.status(StatusCodes.BAD_REQUEST).json(registrosAfectados); 
+    let entity = req.body;
 
-  }else{
-  return res.status(StatusCodes.CREATED).json(registrosAfectados); }
-}),
+    if (entity.name == null || entity.name.length >= 3) {
+      const registrosAfectados = await svc.createAsync(entity);
+      return res.status(StatusCodes.BAD_REQUEST).json(registrosAfectados); 
+    } else {
+      return res.status(StatusCodes.CREATED).json(registrosAfectados); 
+    }
+})
 
 
 router.put('', async (req, res) => {

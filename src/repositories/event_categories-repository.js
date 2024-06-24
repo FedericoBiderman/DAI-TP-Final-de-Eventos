@@ -52,7 +52,7 @@ export default class CategoriesRepository{
                     display_order   
                 )  VALUES (
                     $1,
-                    $2,     
+                    $2   
                 )`;
             const values = [    entity?.name            ?? '',
                                 entity?.display_order   ?? 0

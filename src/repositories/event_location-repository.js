@@ -99,7 +99,7 @@ export default class Event_locationRepository{
                 max_capacity = $5      ,
                 latitude = $6          , 
                 longitude = $7         ,
-                id_creator_user= $8    ,
+                id_creator_user= $8
                 WHERE id = $1`;  
         const values = [    id,
                             entity?.id_location            ?? previousEntity?.id_location,

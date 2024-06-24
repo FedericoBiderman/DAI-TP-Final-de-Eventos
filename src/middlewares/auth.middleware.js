@@ -1,18 +1,21 @@
 import jwt from 'jsonwebtoken';
+import { StatusCodes } from 'http-status-codes';
 
-export const authenticateToken = (req, res, next) => {
+const authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = authHeader && authHeader.split(' ')[1]; // El token se espera en el formato "Bearer <token>"
 
-    if (!token) {
-        return res.status(401).json({ message: 'No autorizado' });
+    if (token == null) {
+        return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Token no proporcionado.' });
     }
 
-    jwt.verify(token, 'your_jwt_secret', (err, user) => {
+    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
         if (err) {
-            return res.status(403).json({ message: 'Token inválido' });
+            return res.status(StatusCodes.FORBIDDEN).json({ message: 'Token inválido.' });
         }
         req.user = user;
         next();
     });
 };
+
+export { authenticateToken };

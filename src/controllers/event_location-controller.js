@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { StatusCodes } from 'http-status-codes';
+import { authenticateToken } from "../middlewares/auth.middleware.js";
 import Event_locationService from './../services/event_location-service.js';
 
 const router = Router();
 const svc = new Event_locationService();
 
-router.get('', async (req, res) => {
+router.get('', authenticateToken, async (req, res) => {
     try {
         const returnArray = await svc.getAllAsync();
         if (returnArray.length > 0) {
@@ -20,7 +21,7 @@ router.get('', async (req, res) => {
 });
 
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', authenticateToken, async (req, res) => {
   let respuesta;
   let id = req.params.id;
   const returnEntity = await svc.getByIdAsync(id);
@@ -32,7 +33,7 @@ router.get('/:id', async (req, res) => {
   return respuesta;
 })
 
-router.post('', async (req, res) => {
+router.post('', authenticateToken, async (req, res) => {
   let entity = req.body;
   const registrosAfectados = await svc.createAsync(entity);
   if (registrosAfectados !== 0) {
@@ -44,10 +45,10 @@ router.post('', async (req, res) => {
 
 
 
-router.put('', async (req, res) => {
+router.put('', authenticateToken, async (req, res) => {
   let respuesta;
   let entity = req.body;
-  console.log(entity);
+  console.log('entity controller', entity);
   const registrosAfectados = await svc.updateAsync(entity);
   if (registrosAfectados != 0){
     respuesta = res.status(StatusCodes.OK).send('Event Location actualizado correctamente');
@@ -57,7 +58,7 @@ router.put('', async (req, res) => {
   return respuesta;
 
 }),
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', authenticateToken, async (req, res) => {
   let respuesta;
   let id = req.params.id;
   const registrosAfectados = await svc.deleteByIdAsync(id);
