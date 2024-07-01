@@ -1,17 +1,16 @@
 import DBConfig from './../configs/db-config.js';
 import pkg from 'pg';
-const {Client, Pool} = pkg;
+const { Client } = pkg;
 
-export default class Event_enrollmentRepository {
+export default class EventEnrollmentRepository {
     getFilteredEnrollmentsAsync = async (eventId, filters) => {
-        console.log(`Event_enrollmentRepository.getFilteredEnrollmentsAsync(${eventId}, ${JSON.stringify(filters)})`);
-        let returnArray = null;
+        console.log(`EventEnrollmentRepository.getFilteredEnrollmentsAsync(${eventId}, ${JSON.stringify(filters)})`);
         const client = new Client(DBConfig);
         try {
             await client.connect();
 
             let sql = `
-                SELECT event_enrollments.*, users.id as user_id, users.first_name, users.last_name, users.username, users.password
+                SELECT event_enrollments.*, users.id as user_id, users.first_name, users.last_name, users.username
                 FROM event_enrollments
                 INNER JOIN users ON event_enrollments.id_user = users.id
                 WHERE event_enrollments.id_event = $1
@@ -41,16 +40,16 @@ export default class Event_enrollmentRepository {
 
             const result = await client.query(sql, values);
             await client.end();
-            returnArray = result.rows;
+            return result.rows;
         } catch (error) {
             console.log(error);
+            await client.end();
+            throw error;
         }
-        return returnArray;
     }
 
     registerUserAsync = async (eventId, userId, registrationDateTime) => {
-        console.log(`Event_enrollmentRepository.registerUserAsync(${eventId}, ${userId}, ${registrationDateTime})`);
-        let rowsAffected = 0;
+        console.log(`EventEnrollmentRepository.registerUserAsync(${eventId}, ${userId}, ${registrationDateTime})`);
         const client = new Client(DBConfig);
         try {
             await client.connect();
@@ -62,17 +61,16 @@ export default class Event_enrollmentRepository {
             const values = [eventId, userId, registrationDateTime];
             const result = await client.query(sql, values);
             await client.end();
-            rowsAffected = result.rowCount;
+            return result.rowCount;
         } catch (error) {
             console.log(error);
+            await client.end();
+            throw error;
         }
-        return rowsAffected;
     }
 
-    // Eliminar la inscripción de un usuario de un evento
     removeUserAsync = async (eventId, userId) => {
-        console.log(`Event_enrollmentRepository.removeUserAsync(${eventId}, ${userId})`);
-        let rowsAffected = 0;
+        console.log(`EventEnrollmentRepository.removeUserAsync(${eventId}, ${userId})`);
         const client = new Client(DBConfig);
         try {
             await client.connect();
@@ -83,17 +81,16 @@ export default class Event_enrollmentRepository {
             const values = [eventId, userId];
             const result = await client.query(sql, values);
             await client.end();
-            rowsAffected = result.rowCount;
+            return result.rowCount;
         } catch (error) {
             console.log(error);
+            await client.end();
+            throw error;
         }
-        return rowsAffected;
     }
 
-    // Actualizar el rating de un evento
     updateRatingAsync = async (eventId, userId, rating, observations) => {
-        console.log(`Event_enrollmentRepository.updateRatingAsync(${eventId}, ${userId}, ${rating}, ${observations})`);
-        let rowsAffected = 0;
+        console.log(`EventEnrollmentRepository.updateRatingAsync(${eventId}, ${userId}, ${rating}, ${observations})`);
         const client = new Client(DBConfig);
         try {
             await client.connect();
@@ -106,11 +103,48 @@ export default class Event_enrollmentRepository {
             const values = [rating, observations, eventId, userId];
             const result = await client.query(sql, values);
             await client.end();
-            rowsAffected = result.rowCount;
+            return result.rowCount;
         } catch (error) {
             console.log(error);
+            await client.end();
+            throw error;
         }
-        return rowsAffected;
     }
 
+    getEventByIdAsync = async (eventId) => {
+        console.log(`EventEnrollmentRepository.getEventByIdAsync(${eventId})`);
+        const client = new Client(DBConfig);
+        try {
+            await client.connect();
+            const sql = `SELECT * FROM events WHERE id = $1`;
+            const values = [eventId];
+            const result = await client.query(sql, values);
+            await client.end();
+            return result.rows[0];
+        } catch (error) {
+            console.log(error);
+            await client.end();
+            throw error;
+        }
+    }
+
+    isUserEnrolledAsync = async (eventId, userId) => {
+        console.log(`EventEnrollmentRepository.isUserEnrolledAsync(${eventId}, ${userId})`);
+        const client = new Client(DBConfig);
+        try {
+            await client.connect();
+            const sql = `
+                SELECT * FROM event_enrollments
+                WHERE id_event = $1 AND id_user = $2
+            `;
+            const values = [eventId, userId];
+            const result = await client.query(sql, values);
+            await client.end();
+            return result.rows.length > 0;
+        } catch (error) {
+            console.log(error);
+            await client.end();
+            throw error;
+        }
+    }
 }

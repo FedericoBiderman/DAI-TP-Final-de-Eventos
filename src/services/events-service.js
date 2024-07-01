@@ -18,4 +18,22 @@ export default class EventsService {
         const returnObject = await repo.getEventDetailsByIdAsync(eventId);
         return returnObject;
     }
+
+    createEventAsync = async (event) => {
+        const repo = new EventsRepository();
+        const returnObject = await repo.createEventAsync(event);
+        return returnObject;
+    }
+
+    updateEventAsync = async (event) => {
+        const repo = new EventsRepository();
+        const returnObject = await repo.updateEventAsync(event);
+        return returnObject;
+    }
+
+    deleteEventAsync = async (id, userId) => {
+        const repo = new EventsRepository();
+        const returnObject = await repo.deleteEventAsync(id, userId);
+        return returnObject;
+    }
 }

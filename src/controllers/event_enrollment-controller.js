@@ -60,18 +60,18 @@ router.delete("/:id/enrollment", authenticateToken, async (req, res) => {
   }
 });
 
-router.patch("/:id/enrollment/:userId", authenticateToken, async (req, res) => {
+router.patch("/:id/enrollment/:rating", authenticateToken, async (req, res) => {
   try {
       const eventId = req.params.id;
-      const userId = req.params.userId;
-      const { rating, observations } = req.body;
+      const rating = req.params.rating;
+      const { observations } = req.body;
       
       // Validar que el rating está entre 1 y 10
       if (rating < 1 || rating > 10) {
           return res.status(StatusCodes.BAD_REQUEST).send(`El rating debe estar entre 1 y 10.`);
       }
 
-      const rowsAffected = await svc.updateRatingAsync(eventId, userId, rating, observations);
+      const rowsAffected = await svc.updateRatingAsync(eventId, rating, rating, observations);
 
       if (rowsAffected > 0) {
           res.status(StatusCodes.OK).send(`Rating actualizado para el evento (id:${eventId}) exitosamente.`);

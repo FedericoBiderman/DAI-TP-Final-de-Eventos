@@ -20,10 +20,8 @@ export default class EventsRepository {
                 ORDER BY e.start_date DESC
                 LIMIT $1 OFFSET $2
             `, [limit, offset]);
-    
             const countRes = await client.query('SELECT COUNT(*) FROM events');
             const total = parseInt(countRes.rows[0].count, 10);
-    
             await client.end();
             return { events: res.rows, total };
         } catch(error) {
@@ -33,27 +31,27 @@ export default class EventsRepository {
 
     searchEventsAsync = async (filters) => {
         const client = new Client(DBConfig);
-        const { name, category, startdate, tag, limit, offset } = filters;
+        const { name, category, start_date, tag, limit, offset } = filters;
         const conditions = [];
         const values = [];
-    
+        
         if (name) {
             values.push(`%${name}%`);
-            conditions.push(`e.name ILIKE $${values.length}`);
+            conditions.push(`e.name LIKE $${values.length}`);
         }
         if (category) {
             values.push(`%${category}%`);
-            conditions.push(`c.name ILIKE $${values.length}`);
+            conditions.push(`c.name LIKE $${values.length}`);
         }
-        if (startdate) {
-            values.push(startdate);
+        if (start_date) {
+            values.push(start_date);
             conditions.push(`DATE(e.start_date) = $${values.length}`);
         }
         if (tag) {
             values.push(`%${tag}%`);
-            conditions.push(`t.name ILIKE $${values.length}`);
+            conditions.push(`t.name LIKE $${values.length}`);
         }
-    
+        
         const whereClause = conditions.length ? `WHERE ${conditions.join(' AND ')}` : '';
         const query = `
             SELECT 
@@ -69,10 +67,13 @@ export default class EventsRepository {
             LEFT JOIN tags t ON et.id_tag = t.id
             ${whereClause}
             ORDER BY e.start_date DESC
-            LIMIT $${values.length + 1} OFFSET $${values.length + 2}
+            LIMIT $${values.length + 1} OFFSET $${values.length + 2} 
         `;
+        console.log(query);
+        //e.name $${values.length + 3} c.name $${values.length + 4} e.start_date $${values.length + 5}
         values.push(limit, offset);
-    
+        
+        
         try {
             await client.connect();
             const res = await client.query(query, values);
@@ -90,10 +91,13 @@ export default class EventsRepository {
     
             await client.end();
             return { events: res.rows, total };
-        } catch(error) {
-            console.log(error);
+        } catch (error) {
+            console.error(error);
+            await client.end();
+            throw error;
         }
     };
+    
 
     getEventDetailsByIdAsync = async (eventId) => {
         const client = new Client(DBConfig);
@@ -125,4 +129,62 @@ export default class EventsRepository {
             console.log(error);
         }
     };
+
+    createEventAsync = async (event) => {
+        const client = new Client(DBConfig);
+        const { name, description, start_date, duration_in_minutes, price, enabled_for_enrollment, max_assistance, id_creator_user, id_event_category, id_event_location } = event;
+        try {
+            await client.connect();
+            const res = await client.query(`
+                INSERT INTO events (name, description, start_date, duration_in_minutes, price, enabled_for_enrollment, max_assistance, id_creator_user, id_event_category, id_event_location)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+                RETURNING *
+            `, [name, description, start_date, duration_in_minutes, price, enabled_for_enrollment, max_assistance, id_creator_user, id_event_category, id_event_location]);
+            await client.end();
+            return res.rows[0];
+        } catch (error) {
+            console.error(error);
+            await client.end();
+            throw error;
+        }
+    };
+
+    updateEventAsync = async (event) => {
+        const client = new Client(DBConfig);
+        const { id, name, description, start_date, duration_in_minutes, price, enabled_for_enrollment, max_assistance, id_event_category, id_event_location } = event;
+        try {
+            await client.connect();
+            const res = await client.query(`
+                UPDATE events
+                SET name = $1, description = $2, start_date = $3, duration_in_minutes = $4, price = $5, enabled_for_enrollment = $6, max_assistance = $7, id_event_category = $8, id_event_location = $9
+                WHERE id = $10 AND id_creator_user = $11
+                RETURNING *
+            `, [name, description, start_date, duration_in_minutes, price, enabled_for_enrollment, max_assistance, id_event_category, id_event_location, id, event.id_creator_user]);
+            await client.end();
+            return res.rows[0];
+        } catch (error) {
+            console.error(error);
+            await client.end();
+            throw error;
+        }
+    };
+
+    deleteEventAsync = async (id, userId) => {
+        const client = new Client(DBConfig);
+        try {
+            await client.connect();
+            const res = await client.query(`
+                DELETE FROM events
+                WHERE id = $1 AND id_creator_user = $2
+                RETURNING *
+            `, [id, userId]);
+            await client.end();
+            return res.rows[0];
+        } catch (error) {
+            console.error(error);
+            await client.end();
+            throw error;
+        }
+    };
+
 }
