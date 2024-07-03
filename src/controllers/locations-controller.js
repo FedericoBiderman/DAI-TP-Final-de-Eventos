@@ -1,6 +1,7 @@
 import {Router} from 'express';
 import { StatusCodes } from 'http-status-codes';
 import LocationsService from './../services/locations-service.js'
+import { authenticateToken } from "../middlewares/auth.middleware.js";
 const router = Router();
 const svc    = new LocationsService();		// Instanciación del Service.
 
@@ -27,7 +28,7 @@ router.get('/:id', async (req, res) => {
   return respuesta;
 })
 
-router.get('/:id/event-location', async (req, res) => {
+router.get('/:id/event-location', authenticateToken, async (req, res) => {
   let respuesta;
   let id = req.params.id;
   const user = req.user; // assuming user authentication is handled and user object is available in the request
