@@ -9,8 +9,9 @@ const authenticateToken = (req, res, next) => {
         return res.status(StatusCodes.UNAUTHORIZED).json({ message: 'Token no proporcionado.' });
     }
 
-    jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, 'your_jwt_secret', (err, user) => {
         if (err) {
+            console.log("ERROR authenticateToken: ", err)
             return res.status(StatusCodes.FORBIDDEN).json({ message: 'Token inválido.' });
         }
         req.user = user;

@@ -16,6 +16,8 @@ export default class Event_enrollmentService {
         return rowsAffected;
     }
 
+    
+
     // Actualizar el rating de un evento
     updateRatingAsync = async (eventId, userId, rating, observations) => {
         const repo = new Event_enrollmentRepository();

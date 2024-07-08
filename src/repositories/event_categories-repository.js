@@ -90,7 +90,6 @@ export default class CategoriesRepository{
          await client.end();
          rowsAffected = result.rowCount;
     } catch (error) {
-        LogHelper.logError(error);
         console.log(error);
     }
      return rowsAffected;

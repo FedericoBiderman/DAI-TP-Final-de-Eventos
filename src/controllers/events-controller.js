@@ -19,7 +19,7 @@ const svc = new EventsService();
 });
 */
 // Buscar eventos
-router.get('/',  async (req, res) => {
+router.get('/', async (req, res) => {
     const { name, category, startdate, tag, limit, offset } = req.query;
     const filters = { name, category, startdate, tag, limit: parseInt(limit) || 10, offset: parseInt(offset) || 0 };
 
@@ -32,7 +32,7 @@ router.get('/',  async (req, res) => {
 });
 
 // Obtener detalle de un evento
-router.get('/:id',   async (req, res) => {
+router.get('/:id', async (req, res) => {
     const eventId = req.params.id;
 
     try {
@@ -48,34 +48,36 @@ router.get('/:id',   async (req, res) => {
 
 router.post('/', authenticateToken, async (req, res) => {
     const event = req.body;
-    const userId = req.user.id;
-
     try {
-        const createdEvent = await svc.createEventAsync(event, userId);
+        console.log("usuario logueado:", req.user);
+        event.id_creator_user = req.user.id;
+        if (event.name.length < 3) {
+            return res.status(StatusCodes.BAD_REQUEST).json({ error: 'El nombre del evento debe tener al menos 3 caracteres' });
+        }
+        const createdEvent = await svc.createEventAsync(event);
         res.status(StatusCodes.CREATED).json(createdEvent);
     } catch (error) {
-        if (error.status) {
-            res.status(error.status).json({ message: error.message });
-        } else {
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
-        }
+        console.error('Error al crear el evento:', error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+        
     }
 });
-
 // Actualizar un evento
 router.put('/', authenticateToken, async (req, res) => {
     const event = req.body;
     const userId = req.user.id;
 
     try {
+        if (event.name.length < 3) {
+            return res.status(StatusCodes.BAD_REQUEST).json({ error: 'El nombre del evento debe tener al menos 3 caracteres' });
+        }
         const updatedEvent = await svc.updateEventAsync(event, userId);
         res.status(StatusCodes.OK).json(updatedEvent);
-    } catch (error) {
-        if (error.status) {
-            res.status(error.status).json({ message: error.message });
-        } else {
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+        if (!event) {
+            return res.status(StatusCodes.NOT_FOUND).json({ error: 'El nombre del evento no se encuentra' });
         }
+    } catch (error) {
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
 });
 
@@ -86,13 +88,14 @@ router.delete('/:id', authenticateToken, async (req, res) => {
 
     try {
         const deletedEvent = await svc.deleteEventAsync(eventId, userId);
+
+        if (!deletedEvent) {
+            return res.status(StatusCodes.NOT_FOUND).json({ error: 'Evento no encontrado' });
+        }
+
         res.status(StatusCodes.OK).json(deletedEvent);
     } catch (error) {
-        if (error.status) {
-            res.status(error.status).json({ message: error.message });
-        } else {
-            res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
-        }
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
 });
 

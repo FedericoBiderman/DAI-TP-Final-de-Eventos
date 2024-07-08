@@ -17,6 +17,22 @@ router.post('/login', async (req, res) => {
         const user = await svc.getAllAsync(username, password);
         console.log('User retrieved from DB:', user);
 
+        if (!username || !password) {
+            return res.status(400).json({ message: 'Los campos username o password están vacíos.' });
+        }
+    
+    
+        const emailRegex = /\S+@\S+\.\S+/;
+        if (!emailRegex.test(username)) {
+            return res.status(400).json({ message: 'El email (username) es sintácticamente inválido.' });
+        }
+    
+    
+        if (password.length < 3) {
+            return res.status(400).json({ message: 'El campo password tiene menos de 3 letras.' });
+        }
+        
+       
 
         if (user == null) {
             console.log('Usuario no encontrado');
@@ -26,7 +42,7 @@ router.post('/login', async (req, res) => {
                 token: ''
             });
         }
-       
+
         console.log('OK',user);
         const token = jwt.sign(user, 'your_jwt_secret', { expiresIn: '1h' });
         console.log('Generated token:', token);

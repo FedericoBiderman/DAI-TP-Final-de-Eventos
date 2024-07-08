@@ -14,7 +14,6 @@ export default class ProvinceRepository{
             await client.end();
             returnArray = result.rows;
         } catch (error) {
-            LogHelper.logError(error);
             console.log(error);
         }
         return returnArray;
@@ -41,6 +40,26 @@ export default class ProvinceRepository{
         return returnEntity;
     }
 
+     getByLocationId = async (id) => {
+        console.log(`ProvinceRepository.getByLocationId(${id})`);
+        let returnEntity = null;
+        const client = new Client(DBConfig);
+        try {
+          await client.connect();
+          const sql = 'SELECT * FROM locations WHERE id_province= $1';
+          const values = [id];
+          const result = await client.query(sql, values);
+          await client.end();
+          if (result.rows.length > 0) {
+            returnEntity = result.rows; 
+          }
+        } catch (error) {
+            console.log(error);
+          throw error; 
+        }
+        console.log("returnEntity", returnEntity);
+        return returnEntity;
+      };
 
     createAsync = async (entity) => {
         console.log(`ProvinceRepository.createAsync(${JSON.stringify(entity)})`); 
@@ -72,7 +91,7 @@ export default class ProvinceRepository{
             await client.end();
             rowsAffected = result.rowCount;
         } catch (error) {
-            LogHelper.logError(error);
+          
             console.log(error);
         }
         return rowsAffected;
@@ -109,7 +128,7 @@ export default class ProvinceRepository{
          await client.end();
          rowsAffected = result.rowCount;
     } catch (error) {
-        LogHelper.logError(error);
+       
         console.log(error);
     }
      return rowsAffected;
@@ -127,8 +146,7 @@ export default class ProvinceRepository{
             await client.end();
           rowsAffected = result.rowCount;
         } catch (error) {
-            LogHelper.logError(error);
-            console.log(error);
+          console.log(error);
         }
         return rowsAffected;
     }

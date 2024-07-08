@@ -18,7 +18,7 @@ app.use(express.json());
 app.use('/api/event', EventRouter);
 app.use('/api/event', Event_enrollmentRouter);
 app.use('/api/province', ProvinceRouter);
-app.use('/api/location', LocationsRouter);
+app.use('/api/locations', LocationsRouter);
 app.use('/api/user', UserRouter);
 app.use('/api/event-category', CategoriesRouter);
 app.use('/api/event-location', Event_locationRouter);

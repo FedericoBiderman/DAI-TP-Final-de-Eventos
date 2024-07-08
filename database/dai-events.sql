@@ -5,7 +5,7 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.0
 
--- Started on 2024-07-04 10:30:06
+-- Started on 2024-07-08 12:11:12
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -22,6 +22,8 @@ SET row_security = off;
 -- TOC entry 4 (class 2615 OID 2200)
 -- Name: public; Type: SCHEMA; Schema: -; Owner: pg_database_owner
 --
+
+CREATE SCHEMA public;
 
 
 ALTER SCHEMA public OWNER TO pg_database_owner;
@@ -40,7 +42,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 215 (class 1259 OID 16399)
+-- TOC entry 215 (class 1259 OID 16527)
 -- Name: event_categories; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -54,7 +56,7 @@ CREATE TABLE public.event_categories (
 ALTER TABLE public.event_categories OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 16404)
+-- TOC entry 216 (class 1259 OID 16532)
 -- Name: event_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -79,7 +81,7 @@ ALTER SEQUENCE public.event_categories_id_seq OWNED BY public.event_categories.i
 
 
 --
--- TOC entry 217 (class 1259 OID 16405)
+-- TOC entry 217 (class 1259 OID 16533)
 -- Name: event_enrollments; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -98,7 +100,7 @@ CREATE TABLE public.event_enrollments (
 ALTER TABLE public.event_enrollments OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 16410)
+-- TOC entry 218 (class 1259 OID 16538)
 -- Name: event_enrollments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -123,7 +125,7 @@ ALTER SEQUENCE public.event_enrollments_id_seq OWNED BY public.event_enrollments
 
 
 --
--- TOC entry 219 (class 1259 OID 16411)
+-- TOC entry 219 (class 1259 OID 16539)
 -- Name: event_locations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -142,7 +144,7 @@ CREATE TABLE public.event_locations (
 ALTER TABLE public.event_locations OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 16416)
+-- TOC entry 220 (class 1259 OID 16544)
 -- Name: event_locations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -167,7 +169,7 @@ ALTER SEQUENCE public.event_locations_id_seq OWNED BY public.event_locations.id;
 
 
 --
--- TOC entry 221 (class 1259 OID 16417)
+-- TOC entry 221 (class 1259 OID 16545)
 -- Name: event_tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -181,7 +183,7 @@ CREATE TABLE public.event_tags (
 ALTER TABLE public.event_tags OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 16420)
+-- TOC entry 222 (class 1259 OID 16548)
 -- Name: event_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -206,7 +208,7 @@ ALTER SEQUENCE public.event_tags_id_seq OWNED BY public.event_tags.id;
 
 
 --
--- TOC entry 223 (class 1259 OID 16421)
+-- TOC entry 223 (class 1259 OID 16549)
 -- Name: events; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -228,7 +230,7 @@ CREATE TABLE public.events (
 ALTER TABLE public.events OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 16426)
+-- TOC entry 224 (class 1259 OID 16554)
 -- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -253,7 +255,7 @@ ALTER SEQUENCE public.events_id_seq OWNED BY public.events.id;
 
 
 --
--- TOC entry 225 (class 1259 OID 16427)
+-- TOC entry 225 (class 1259 OID 16555)
 -- Name: locations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -269,7 +271,7 @@ CREATE TABLE public.locations (
 ALTER TABLE public.locations OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 16432)
+-- TOC entry 226 (class 1259 OID 16560)
 -- Name: locations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -294,7 +296,7 @@ ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 
 
 --
--- TOC entry 227 (class 1259 OID 16433)
+-- TOC entry 227 (class 1259 OID 16561)
 -- Name: provinces; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -311,7 +313,7 @@ CREATE TABLE public.provinces (
 ALTER TABLE public.provinces OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 16438)
+-- TOC entry 228 (class 1259 OID 16566)
 -- Name: provinces_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -336,7 +338,7 @@ ALTER SEQUENCE public.provinces_id_seq OWNED BY public.provinces.id;
 
 
 --
--- TOC entry 229 (class 1259 OID 16439)
+-- TOC entry 229 (class 1259 OID 16567)
 -- Name: tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -349,7 +351,7 @@ CREATE TABLE public.tags (
 ALTER TABLE public.tags OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 16444)
+-- TOC entry 230 (class 1259 OID 16572)
 -- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -374,7 +376,7 @@ ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
 
 
 --
--- TOC entry 231 (class 1259 OID 16445)
+-- TOC entry 231 (class 1259 OID 16573)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -390,7 +392,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 16450)
+-- TOC entry 232 (class 1259 OID 16578)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -415,7 +417,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4674 (class 2604 OID 16451)
+-- TOC entry 4674 (class 2604 OID 16579)
 -- Name: event_categories id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -423,7 +425,7 @@ ALTER TABLE ONLY public.event_categories ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 4675 (class 2604 OID 16452)
+-- TOC entry 4675 (class 2604 OID 16580)
 -- Name: event_enrollments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -431,7 +433,7 @@ ALTER TABLE ONLY public.event_enrollments ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 4676 (class 2604 OID 16453)
+-- TOC entry 4676 (class 2604 OID 16581)
 -- Name: event_locations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -439,7 +441,7 @@ ALTER TABLE ONLY public.event_locations ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 4677 (class 2604 OID 16454)
+-- TOC entry 4677 (class 2604 OID 16582)
 -- Name: event_tags id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -447,7 +449,7 @@ ALTER TABLE ONLY public.event_tags ALTER COLUMN id SET DEFAULT nextval('public.e
 
 
 --
--- TOC entry 4678 (class 2604 OID 16455)
+-- TOC entry 4678 (class 2604 OID 16583)
 -- Name: events id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -455,7 +457,7 @@ ALTER TABLE ONLY public.events ALTER COLUMN id SET DEFAULT nextval('public.event
 
 
 --
--- TOC entry 4679 (class 2604 OID 16456)
+-- TOC entry 4679 (class 2604 OID 16584)
 -- Name: locations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -463,7 +465,7 @@ ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.lo
 
 
 --
--- TOC entry 4680 (class 2604 OID 16457)
+-- TOC entry 4680 (class 2604 OID 16585)
 -- Name: provinces id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -471,7 +473,7 @@ ALTER TABLE ONLY public.provinces ALTER COLUMN id SET DEFAULT nextval('public.pr
 
 
 --
--- TOC entry 4681 (class 2604 OID 16458)
+-- TOC entry 4681 (class 2604 OID 16586)
 -- Name: tags id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -479,7 +481,7 @@ ALTER TABLE ONLY public.tags ALTER COLUMN id SET DEFAULT nextval('public.tags_id
 
 
 --
--- TOC entry 4682 (class 2604 OID 16459)
+-- TOC entry 4682 (class 2604 OID 16587)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -487,7 +489,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4853 (class 0 OID 16399)
+-- TOC entry 4853 (class 0 OID 16527)
 -- Dependencies: 215
 -- Data for Name: event_categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -505,17 +507,18 @@ INSERT INTO public.event_categories VALUES (11, 'Obras Teatrales', 100);
 
 
 --
--- TOC entry 4855 (class 0 OID 16405)
+-- TOC entry 4855 (class 0 OID 16533)
 -- Dependencies: 217
 -- Data for Name: event_enrollments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.event_enrollments VALUES (1, 45, 14, NULL, '2024-05-08 00:00:00', NULL, NULL, NULL);
-INSERT INTO public.event_enrollments VALUES (2, 45, 20, NULL, '2024-04-09 00:00:00', NULL, NULL, NULL);
+INSERT INTO public.event_enrollments VALUES (1, 6, 1, 'Registrado para el concierto de Taylor Swift', '2023-11-08 10:00:00', B'0', NULL, NULL);
+INSERT INTO public.event_enrollments VALUES (2, 7, 1, 'Registrado para el concierto de Tan Bionica', '2024-07-01 15:30:00', B'0', NULL, NULL);
+INSERT INTO public.event_enrollments VALUES (3, 8, 1, 'Registrado para el concierto de Emilia', '2024-05-03 12:00:00', B'1', 'Asistió al evento y le gustó mucho', 5);
 
 
 --
--- TOC entry 4857 (class 0 OID 16411)
+-- TOC entry 4857 (class 0 OID 16539)
 -- Dependencies: 219
 -- Data for Name: event_locations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -526,21 +529,24 @@ INSERT INTO public.event_locations VALUES (4, 3391, 'Estadio de River Plate', 'A
 INSERT INTO public.event_locations VALUES (5, 3355, 'Teatro Colón', 'Cerrito 628, Ciudad Autónoma de Buenos Aires, República Argentina', '2478', -34.600833067616335, -58.38356173216588, 1);
 INSERT INTO public.event_locations VALUES (6, 3354, 'Museo Nacional Ferroviario', 'Av. del Libertador 405', '1000', -34.58970739298685, -58.37839226506462, 1);
 INSERT INTO public.event_locations VALUES (7, 3742, 'Tecnópolis', 'Av. San Juan Bautista de la Salle 4500, Cdad. Autónoma de Buenos Aires', '13000', -34.55910875385725, -58.50589314720406, 1);
+INSERT INTO public.event_locations VALUES (8, 3355, 'Luna Park', 'Av. Eduardo Madero 470, C1106 Cdad. Autónoma de Buenos Aires', '8400', -34.601761864468756, -58.36891780311716, 1);
 INSERT INTO public.event_locations VALUES (9, 3355, 'Teatro Apolo', 'Av. Corrientes 1372, C1043 ABN, Cdad. Autónoma de Buenos Aires', '498', -34.60390880869589, -58.386146060786594, 1);
-INSERT INTO public.event_locations VALUES (12, 3400, 'Camp Nou', 'Distrito de Les Corts, 08028 Barcelona, España', '90000', 41.380833333333, 2.1227777777778, 1);
-INSERT INTO public.event_locations VALUES (8, 3355, 'Santiago Bernabeu', 'Av. de Concha Espina, 1, Chamartín, 28036 Madrid, España', '100000', 40.4530541, -3.6883445, 1);
 
 
 --
--- TOC entry 4859 (class 0 OID 16417)
+-- TOC entry 4859 (class 0 OID 16545)
 -- Dependencies: 221
 -- Data for Name: event_tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.event_tags VALUES (2, 6, 1);
+INSERT INTO public.event_tags VALUES (3, 6, 2);
+INSERT INTO public.event_tags VALUES (4, 8, 1);
+INSERT INTO public.event_tags VALUES (5, 8, 2);
 
 
 --
--- TOC entry 4861 (class 0 OID 16421)
+-- TOC entry 4861 (class 0 OID 16549)
 -- Dependencies: 223
 -- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -614,10 +620,11 @@ INSERT INTO public.events VALUES (60, 'Moldavsky ', 'El top top top del humor vu
 INSERT INTO public.events VALUES (61, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-14 00:00:00', 110, 10000, B'1', 450, 1);
 INSERT INTO public.events VALUES (62, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-15 00:00:00', 110, 10000, B'1', 450, 1);
 INSERT INTO public.events VALUES (63, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-16 00:00:00', 110, 10000, B'1', 450, 1);
+INSERT INTO public.events VALUES (67, 'Nuevo Evento de DAI', 'Descripcion de Nuevo Evento de DAI', 3, 4, '2024-11-12 03:00:00', 120, 50000, B'1', 120000, 14);
 
 
 --
--- TOC entry 4863 (class 0 OID 16427)
+-- TOC entry 4863 (class 0 OID 16555)
 -- Dependencies: 225
 -- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4662,52 +4669,54 @@ INSERT INTO public.locations VALUES (4037, 'Yerba Buena - Marcos Paz', 90, -26.8
 
 
 --
--- TOC entry 4865 (class 0 OID 16433)
+-- TOC entry 4865 (class 0 OID 16561)
 -- Dependencies: 227
 -- Data for Name: provinces; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.provinces VALUES (2, 'Ciudad Autónoma de Buenos Aires', 'Ciudad Autónoma de Buenos Aires', -34.61444091796875, -58.445877075195312, NULL);
-INSERT INTO public.provinces VALUES (6, 'Buenos Aires', 'Provincia de Buenos Aires', -36.677391052246094, -60.558475494384766, NULL);
-INSERT INTO public.provinces VALUES (10, 'Catamarca', 'Provincia de Catamarca', -27.335954666137695, -66.9478988647461, NULL);
-INSERT INTO public.provinces VALUES (14, 'Córdoba', 'Provincia de Córdoba', -32.144798278808594, -63.801975250244141, NULL);
-INSERT INTO public.provinces VALUES (18, 'Corrientes', 'Provincia de Corrientes', -28.774204254150391, -57.801082611083984, NULL);
-INSERT INTO public.provinces VALUES (22, 'Chaco', 'Provincia del Chaco', -26.386987686157227, -60.765117645263672, NULL);
-INSERT INTO public.provinces VALUES (26, 'Chubut', 'Provincia del Chubut', -43.788627624511719, -68.5267333984375, NULL);
-INSERT INTO public.provinces VALUES (30, 'Entre Ríos', 'Provincia de Entre Ríos', -32.058929443359375, -59.201263427734375, NULL);
-INSERT INTO public.provinces VALUES (34, 'Formosa', 'Provincia de Formosa', -24.895086288452148, -59.93218994140625, NULL);
-INSERT INTO public.provinces VALUES (38, 'Jujuy', 'Provincia de Jujuy', -23.319974899291992, -65.7644271850586, NULL);
-INSERT INTO public.provinces VALUES (42, 'La Pampa', 'Provincia de La Pampa', -37.135066986083984, -65.447647094726562, NULL);
-INSERT INTO public.provinces VALUES (46, 'La Rioja', 'Provincia de La Rioja', -29.6849365234375, -67.181755065917969, NULL);
-INSERT INTO public.provinces VALUES (50, 'Mendoza', 'Provincia de Mendoza', -34.630390167236328, -68.58294677734375, NULL);
-INSERT INTO public.provinces VALUES (54, 'Misiones', 'Provincia de Misiones', -26.875303268432617, -54.651569366455078, NULL);
-INSERT INTO public.provinces VALUES (58, 'Neuquén', 'Provincia del Neuquén', -38.641983032226562, -70.1198959350586, NULL);
-INSERT INTO public.provinces VALUES (62, 'Río Negro', 'Provincia de Río Negro', -40.405078887939453, -67.22967529296875, NULL);
-INSERT INTO public.provinces VALUES (66, 'Salta', 'Provincia de Salta', -24.299283981323242, -64.814155578613281, NULL);
-INSERT INTO public.provinces VALUES (70, 'San Juan', 'Provincia de San Juan', -30.86566162109375, -68.8881607055664, NULL);
-INSERT INTO public.provinces VALUES (74, 'San Luis', 'Provincia de San Luis', -33.761104583740234, -66.025230407714844, NULL);
-INSERT INTO public.provinces VALUES (78, 'Santa Cruz', 'Provincia de Santa Cruz', -48.815547943115234, -69.955764770507812, NULL);
-INSERT INTO public.provinces VALUES (82, 'Santa Fe', 'Provincia de Santa Fe', -30.708822250366211, -60.950687408447266, NULL);
-INSERT INTO public.provinces VALUES (86, 'Santiago del Estero', 'Provincia de Santiago del Estero', -27.783432006835938, -63.252628326416016, NULL);
-INSERT INTO public.provinces VALUES (90, 'Tucumán', 'Provincia de Tucumán', -26.948284149169922, -65.3647689819336, NULL);
-INSERT INTO public.provinces VALUES (94, 'Tierra del Fuego, Antártida e Islas del Atlántico Sur', 'Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur', -82.521133422851562, -50.74285888671875, NULL);
+INSERT INTO public.provinces VALUES (6, 'Buenos Aires', 'Provincia de Buenos Aires', -36.677391052246094, -60.558475494384766, 20);
+INSERT INTO public.provinces VALUES (10, 'Catamarca', 'Provincia de Catamarca', -27.335954666137695, -66.9478988647461, 30);
+INSERT INTO public.provinces VALUES (22, 'Chaco', 'Provincia del Chaco', -26.386987686157227, -60.765117645263672, 40);
+INSERT INTO public.provinces VALUES (26, 'Chubut', 'Provincia del Chubut', -43.788627624511719, -68.5267333984375, 50);
+INSERT INTO public.provinces VALUES (2, 'Ciudad Autónoma de Buenos Aires', 'Ciudad Autónoma de Buenos Aires', -34.61444091796875, -58.445877075195312, 10);
+INSERT INTO public.provinces VALUES (14, 'Córdoba', 'Provincia de Córdoba', -32.144798278808594, -63.801975250244141, 60);
+INSERT INTO public.provinces VALUES (18, 'Corrientes', 'Provincia de Corrientes', -28.774204254150391, -57.801082611083984, 70);
+INSERT INTO public.provinces VALUES (30, 'Entre Ríos', 'Provincia de Entre Ríos', -32.058929443359375, -59.201263427734375, 80);
+INSERT INTO public.provinces VALUES (34, 'Formosa', 'Provincia de Formosa', -24.895086288452148, -59.93218994140625, 90);
+INSERT INTO public.provinces VALUES (38, 'Jujuy', 'Provincia de Jujuy', -23.319974899291992, -65.7644271850586, 100);
+INSERT INTO public.provinces VALUES (42, 'La Pampa', 'Provincia de La Pampa', -37.135066986083984, -65.447647094726562, 110);
+INSERT INTO public.provinces VALUES (46, 'La Rioja', 'Provincia de La Rioja', -29.6849365234375, -67.181755065917969, 120);
+INSERT INTO public.provinces VALUES (50, 'Mendoza', 'Provincia de Mendoza', -34.630390167236328, -68.58294677734375, 130);
+INSERT INTO public.provinces VALUES (54, 'Misiones', 'Provincia de Misiones', -26.875303268432617, -54.651569366455078, 140);
+INSERT INTO public.provinces VALUES (58, 'Neuquén', 'Provincia del Neuquén', -38.641983032226562, -70.1198959350586, 150);
+INSERT INTO public.provinces VALUES (62, 'Río Negro', 'Provincia de Río Negro', -40.405078887939453, -67.22967529296875, 160);
+INSERT INTO public.provinces VALUES (66, 'Salta', 'Provincia de Salta', -24.299283981323242, -64.814155578613281, 170);
+INSERT INTO public.provinces VALUES (70, 'San Juan', 'Provincia de San Juan', -30.86566162109375, -68.8881607055664, 180);
+INSERT INTO public.provinces VALUES (74, 'San Luis', 'Provincia de San Luis', -33.761104583740234, -66.025230407714844, 190);
+INSERT INTO public.provinces VALUES (78, 'Santa Cruz', 'Provincia de Santa Cruz', -48.815547943115234, -69.955764770507812, 200);
+INSERT INTO public.provinces VALUES (82, 'Santa Fe', 'Provincia de Santa Fe', -30.708822250366211, -60.950687408447266, 210);
+INSERT INTO public.provinces VALUES (86, 'Santiago del Estero', 'Provincia de Santiago del Estero', -27.783432006835938, -63.252628326416016, 220);
+INSERT INTO public.provinces VALUES (94, 'Tierra del Fuego, Antártida e Islas del Atlántico Sur', 'Provincia de Tierra del Fuego, Antártida e Islas del Atlántico Sur', -82.521133422851562, -50.74285888671875, 230);
+INSERT INTO public.provinces VALUES (90, 'Provincia Modificada 90', 'Provincia Modificada 90', -13.895086288452148, -14.93218994140625, 90);
 
 
 --
--- TOC entry 4867 (class 0 OID 16439)
+-- TOC entry 4867 (class 0 OID 16567)
 -- Dependencies: 229
 -- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO public.tags VALUES (1, 'rock');
+INSERT INTO public.tags VALUES (2, 'pop');
 
 
 --
--- TOC entry 4869 (class 0 OID 16445)
+-- TOC entry 4869 (class 0 OID 16573)
 -- Dependencies: 231
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public.users VALUES (1, 'Pablo', 'Ulman', 'polshu@polshu.com.ar', 'pablito');
+INSERT INTO public.users VALUES (1, 'Pablo', 'Ulman', 'pablo.ulman@ort.edu.ar', 'pabulm101');
 INSERT INTO public.users VALUES (2, 'Julian', 'Schiffer', 'julian.schiffer@ort.edu.ar', 'julshi102');
 INSERT INTO public.users VALUES (12, 'Ilán', 'Averbuch', 'ilán@gmail.com', 'ilaave112');
 INSERT INTO public.users VALUES (3, 'Angeles', 'Peña', 'angeles.pena@ort.edu.ar', 'angpeñ103');
@@ -4824,6 +4833,8 @@ INSERT INTO public.users VALUES (114, 'Julián', 'Wegman', 'julián@gmail.com', 
 INSERT INTO public.users VALUES (115, 'David Ezequiel', 'Weissbrod', 'davidezequiel@gmail.com', 'davwei215');
 INSERT INTO public.users VALUES (116, 'Agustin', 'Yudcovsky', 'agustin@gmail.com', 'aguyud216');
 INSERT INTO public.users VALUES (120, 'Pablo Fabrizio', 'Zurbano', 'pablofabrizio@gmail.com', 'pabzur220');
+INSERT INTO public.users VALUES (121, 'Guillermo', 'Wonka', 'Willy@chocolats.com', 'ompaloompa');
+INSERT INTO public.users VALUES (122, 'Guillermo', 'Wonka', 'Willy@chocolats.com', 'ompaloompa');
 
 
 --
@@ -4832,7 +4843,7 @@ INSERT INTO public.users VALUES (120, 'Pablo Fabrizio', 'Zurbano', 'pablofabrizi
 -- Name: event_categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.event_categories_id_seq', 12, true);
+SELECT pg_catalog.setval('public.event_categories_id_seq', 11, true);
 
 
 --
@@ -4841,7 +4852,7 @@ SELECT pg_catalog.setval('public.event_categories_id_seq', 12, true);
 -- Name: event_enrollments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.event_enrollments_id_seq', 2, true);
+SELECT pg_catalog.setval('public.event_enrollments_id_seq', 33, true);
 
 
 --
@@ -4850,7 +4861,7 @@ SELECT pg_catalog.setval('public.event_enrollments_id_seq', 2, true);
 -- Name: event_locations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.event_locations_id_seq', 10, true);
+SELECT pg_catalog.setval('public.event_locations_id_seq', 9, true);
 
 
 --
@@ -4859,7 +4870,7 @@ SELECT pg_catalog.setval('public.event_locations_id_seq', 10, true);
 -- Name: event_tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.event_tags_id_seq', 1, false);
+SELECT pg_catalog.setval('public.event_tags_id_seq', 5, true);
 
 
 --
@@ -4868,7 +4879,7 @@ SELECT pg_catalog.setval('public.event_tags_id_seq', 1, false);
 -- Name: events_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.events_id_seq', 1, false);
+SELECT pg_catalog.setval('public.events_id_seq', 67, true);
 
 
 --
@@ -4886,7 +4897,7 @@ SELECT pg_catalog.setval('public.locations_id_seq', 4037, true);
 -- Name: provinces_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.provinces_id_seq', 95, true);
+SELECT pg_catalog.setval('public.provinces_id_seq', 96, true);
 
 
 --
@@ -4895,7 +4906,7 @@ SELECT pg_catalog.setval('public.provinces_id_seq', 95, true);
 -- Name: tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.tags_id_seq', 1, false);
+SELECT pg_catalog.setval('public.tags_id_seq', 2, true);
 
 
 --
@@ -4904,11 +4915,11 @@ SELECT pg_catalog.setval('public.tags_id_seq', 1, false);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 1, true);
+SELECT pg_catalog.setval('public.users_id_seq', 122, true);
 
 
 --
--- TOC entry 4684 (class 2606 OID 16461)
+-- TOC entry 4684 (class 2606 OID 16589)
 -- Name: event_categories PK_EventCategories; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4917,7 +4928,7 @@ ALTER TABLE ONLY public.event_categories
 
 
 --
--- TOC entry 4686 (class 2606 OID 16463)
+-- TOC entry 4686 (class 2606 OID 16591)
 -- Name: event_enrollments PK_EventEnrollments; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4926,7 +4937,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4688 (class 2606 OID 16465)
+-- TOC entry 4688 (class 2606 OID 16593)
 -- Name: event_locations PK_EventLocations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4935,7 +4946,7 @@ ALTER TABLE ONLY public.event_locations
 
 
 --
--- TOC entry 4690 (class 2606 OID 16467)
+-- TOC entry 4690 (class 2606 OID 16595)
 -- Name: event_tags PK_EventTags; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4944,7 +4955,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4692 (class 2606 OID 16469)
+-- TOC entry 4692 (class 2606 OID 16597)
 -- Name: events PK_Events; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4953,7 +4964,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4694 (class 2606 OID 16471)
+-- TOC entry 4694 (class 2606 OID 16599)
 -- Name: locations PK_Locations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4962,7 +4973,7 @@ ALTER TABLE ONLY public.locations
 
 
 --
--- TOC entry 4696 (class 2606 OID 16473)
+-- TOC entry 4696 (class 2606 OID 16601)
 -- Name: provinces PK_Provinces ; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4971,7 +4982,7 @@ ALTER TABLE ONLY public.provinces
 
 
 --
--- TOC entry 4698 (class 2606 OID 16475)
+-- TOC entry 4698 (class 2606 OID 16603)
 -- Name: tags PK_Tags; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4980,7 +4991,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- TOC entry 4700 (class 2606 OID 16477)
+-- TOC entry 4700 (class 2606 OID 16605)
 -- Name: users PK_Users; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4989,7 +5000,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4701 (class 2606 OID 16478)
+-- TOC entry 4701 (class 2606 OID 16606)
 -- Name: event_enrollments fk_event_enrollments_events; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4998,7 +5009,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4702 (class 2606 OID 16483)
+-- TOC entry 4702 (class 2606 OID 16611)
 -- Name: event_enrollments fk_event_enrollments_users; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5007,7 +5018,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4703 (class 2606 OID 16488)
+-- TOC entry 4703 (class 2606 OID 16616)
 -- Name: event_locations fk_event_locations_locations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5016,7 +5027,7 @@ ALTER TABLE ONLY public.event_locations
 
 
 --
--- TOC entry 4704 (class 2606 OID 16493)
+-- TOC entry 4704 (class 2606 OID 16621)
 -- Name: event_tags fk_event_tags_events; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5025,7 +5036,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4705 (class 2606 OID 16498)
+-- TOC entry 4705 (class 2606 OID 16626)
 -- Name: event_tags fk_event_tags_tags; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5034,7 +5045,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4706 (class 2606 OID 16503)
+-- TOC entry 4706 (class 2606 OID 16631)
 -- Name: events fk_events_event_categories; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5043,7 +5054,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4707 (class 2606 OID 16508)
+-- TOC entry 4707 (class 2606 OID 16636)
 -- Name: events fk_events_event_locations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5052,7 +5063,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4708 (class 2606 OID 16513)
+-- TOC entry 4708 (class 2606 OID 16641)
 -- Name: events fk_events_users; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5061,7 +5072,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4709 (class 2606 OID 16518)
+-- TOC entry 4709 (class 2606 OID 16646)
 -- Name: locations fk_locations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5069,7 +5080,7 @@ ALTER TABLE ONLY public.locations
     ADD CONSTRAINT fk_locations_provinces FOREIGN KEY (id_province) REFERENCES public.provinces(id);
 
 
--- Completed on 2024-07-04 10:30:06
+-- Completed on 2024-07-08 12:11:12
 
 --
 -- PostgreSQL database dump complete

@@ -128,6 +128,8 @@ export default class EventEnrollmentRepository {
         }
     }
 
+    
+
     isUserEnrolledAsync = async (eventId, userId) => {
         console.log(`EventEnrollmentRepository.isUserEnrolledAsync(${eventId}, ${userId})`);
         const client = new Client(DBConfig);

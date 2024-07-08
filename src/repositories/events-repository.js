@@ -144,7 +144,6 @@ export default class EventsRepository {
             return res.rows[0];
         } catch (error) {
             console.error(error);
-            await client.end();
             throw error;
         }
     };

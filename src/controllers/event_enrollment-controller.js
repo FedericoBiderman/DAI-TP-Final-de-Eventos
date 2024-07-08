@@ -1,9 +1,11 @@
 import { Router } from "express";
 import { StatusCodes } from "http-status-codes";
 import Event_enrollmentService from "../services/event_enrollment-service.js";
+import Event_Service from "../services/events-service.js"
 import { authenticateToken } from "../middlewares/auth.middleware.js";
 const router = Router();
 const svc = new Event_enrollmentService();
+const svcEventos = new Event_Service();
 
 router.get("/:id/enrollment", async (req, res) => {
     try {
@@ -29,18 +31,34 @@ router.get("/:id/enrollment", async (req, res) => {
 router.post("/:id/enrollment", authenticateToken, async (req, res) => {
   try {
       const eventId = req.params.id;
-      const userId = req.user.id; // Asumimos que el middleware `authenticateToken` añade el usuario al request
+      const userId = req.user.id; 
+
+
+      const eventDetails = await svcEventos.getEventDetailsByIdAsync(eventId);
+
+      if (eventDetails!= null){
+        
+      }else{
+        res.status(StatusCodes.NOT_FOUND).send(`No existe el evento.`);
+        
+      }
       const rowsAffected = await svc.registerUserAsync(eventId, userId);
 
       if (rowsAffected > 0) {
-          res.status(StatusCodes.CREATED).send(`Usuario registrado al evento (id:${eventId}) exitosamente.`);
-      } else {
-          res.status(StatusCodes.BAD_REQUEST).send(`No se pudo registrar al usuario al evento (id:${eventId}).`);
+          res.status(StatusCodes.OK).send(`Usuario registrado al evento (id:${eventId}) exitosamente.`);
       }
-  } catch (error) {
+      if (rowsAffected < 0) {
+        res.status(StatusCodes.BAD_REQUEST).send(`No se pudo registrar al usuario (id:${eventId}) exitosamente.`);
+    }
+    if (!rowsAffected) {
+        return res.status(StatusCodes.NOT_FOUND).send(`Evento no encontrado con ID: ${eventId}`);
+    }
+      
+    } catch (error) {
       console.error(error);
       res.status(StatusCodes.INTERNAL_SERVER_ERROR).json();
   }
+
 });
 
 router.delete("/:id/enrollment", authenticateToken, async (req, res) => {
@@ -51,7 +69,11 @@ router.delete("/:id/enrollment", authenticateToken, async (req, res) => {
 
       if (rowsAffected > 0) {
           res.status(StatusCodes.OK).send(`Usuario removido del evento (id:${eventId}) exitosamente.`);
-      } else {
+      }
+          if (!rowsAffected) {
+            res.status(StatusCodes.NOT_FOUND).send(`no se encontro el evento`);
+          }
+      else {
           res.status(StatusCodes.BAD_REQUEST).send(`No se pudo remover al usuario del evento (id:${eventId}).`);
       }
   } catch (error) {
@@ -60,28 +82,26 @@ router.delete("/:id/enrollment", authenticateToken, async (req, res) => {
   }
 });
 
-router.patch("/:id/enrollment/:rating", authenticateToken, async (req, res) => {
-  try {
-      const eventId = req.params.id;
-      const rating = req.params.rating;
-      const { observations } = req.body;
-      
-      // Validar que el rating está entre 1 y 10
-      if (rating < 1 || rating > 10) {
-          return res.status(StatusCodes.BAD_REQUEST).send(`El rating debe estar entre 1 y 10.`);
-      }
-
-      const rowsAffected = await svc.updateRatingAsync(eventId, rating, rating, observations);
-
-      if (rowsAffected > 0) {
-          res.status(StatusCodes.OK).send(`Rating actualizado para el evento (id:${eventId}) exitosamente.`);
-      } else {
-          res.status(StatusCodes.BAD_REQUEST).send(`No se pudo actualizar el rating para el evento (id:${eventId}).`);
-      }
-  } catch (error) {
-      console.error(error);
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json();
-  }
+router.patch('/:id/enrollment/:rating', authenticateToken, async (req, res) => {
+    const eventId = req.params.id;
+    const rating = req.params.rating;
+    const userId = req.user.id;
+    const { observations } = req.body;
+    let respuesta;
+    try {
+        await svc.updateRatingAsync(eventId, userId, rating, observations);
+        respuesta = res.status(200).json({ message: 'Evento rankeado correctamente.' });
+    } catch (error) {
+        res.status(StatusCodes.BAD_REQUEST).send(`No se pudo rankear el evento.`);
+        res.status(StatusCodes.NOT_FOUND).send(`No se encontro un evento para rankear .`);
+        respuesta = res.status(error.status || 500).json({ message: error.message });
+    }
+    return respuesta;
 });
 
+
 export default router;
+
+
+
+
