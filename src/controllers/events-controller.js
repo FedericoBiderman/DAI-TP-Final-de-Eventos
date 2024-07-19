@@ -62,7 +62,6 @@ router.post('/', authenticateToken, async (req, res) => {
         
     }
 });
-// Actualizar un evento
 router.put('/', authenticateToken, async (req, res) => {
     const event = req.body;
     const userId = req.user.id;
@@ -71,15 +70,22 @@ router.put('/', authenticateToken, async (req, res) => {
         if (event.name.length < 3) {
             return res.status(StatusCodes.BAD_REQUEST).json({ error: 'El nombre del evento debe tener al menos 3 caracteres' });
         }
+
         const updatedEvent = await svc.updateEventAsync(event, userId);
-        res.status(StatusCodes.OK).json(updatedEvent);
-        if (!event) {
-            return res.status(StatusCodes.NOT_FOUND).json({ error: 'El nombre del evento no se encuentra' });
+
+        if (!updatedEvent) {
+            return res.status(StatusCodes.NOT_FOUND).json({ error: 'Evento no encontrado' });
         }
+
+        res.status(StatusCodes.OK).json(updatedEvent);
     } catch (error) {
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+        if (error.status === 404) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: error.message });
+        }
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
 });
+
 
 // Eliminar un evento
 router.delete('/:id', authenticateToken, async (req, res) => {

@@ -29,37 +29,33 @@ router.get("/:id/enrollment", async (req, res) => {
     }
 });
 router.post("/:id/enrollment", authenticateToken, async (req, res) => {
-  try {
-      const eventId = req.params.id;
-      const userId = req.user.id; 
-
-
-      const eventDetails = await svcEventos.getEventDetailsByIdAsync(eventId);
-
-      if (eventDetails!= null){
-        
-      }else{
-        res.status(StatusCodes.NOT_FOUND).send(`No existe el evento.`);
-        
-      }
-      const rowsAffected = await svc.registerUserAsync(eventId, userId);
-
-      if (rowsAffected > 0) {
-          res.status(StatusCodes.OK).send(`Usuario registrado al evento (id:${eventId}) exitosamente.`);
-      }
-      if (rowsAffected < 0) {
-        res.status(StatusCodes.BAD_REQUEST).send(`No se pudo registrar al usuario (id:${eventId}) exitosamente.`);
-    }
-    if (!rowsAffected) {
-        return res.status(StatusCodes.NOT_FOUND).send(`Evento no encontrado con ID: ${eventId}`);
-    }
-      
+    try {
+        const eventId = req.params.id;
+        const userId = req.user.id; 
+  
+        const eventDetails = await svcEventos.getEventDetailsByIdAsync(eventId);
+  
+        if (!eventDetails) {
+            return res.status(StatusCodes.NOT_FOUND).send(`No existe el evento.`);
+        }
+  
+        const rowsAffected = await svc.registerUserAsync(eventId, userId);
+  
+        if (rowsAffected > 0) {
+            return res.status(StatusCodes.OK).send(`Usuario registrado al evento (id:${eventId}) exitosamente.`);
+        } else if (rowsAffected === 0) {
+            return res.status(StatusCodes.NOT_FOUND).send(`Evento no encontrado con ID: ${eventId}`);
+        } else {
+            return res.status(StatusCodes.BAD_REQUEST).send(`No se pudo registrar al usuario (id:${eventId}) exitosamente.`);
+        }
+  
     } catch (error) {
-      console.error(error);
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json();
-  }
+        console.error(error);
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: error.message });
+    }
+  });
+  
 
-});
 
 router.delete("/:id/enrollment", authenticateToken, async (req, res) => {
   try {
@@ -87,17 +83,20 @@ router.patch('/:id/enrollment/:rating', authenticateToken, async (req, res) => {
     const rating = req.params.rating;
     const userId = req.user.id;
     const { observations } = req.body;
-    let respuesta;
     try {
-        await svc.updateRatingAsync(eventId, userId, rating, observations);
-        respuesta = res.status(200).json({ message: 'Evento rankeado correctamente.' });
+        const rowsAffected = await svc.updateRatingAsync(eventId, userId, rating, observations);
+        if (rowsAffected === 0) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'No se encontró el evento para rankear.' });
+        }
+        return res.status(200).json({ message: 'Evento rankeado correctamente.' });
     } catch (error) {
-        res.status(StatusCodes.BAD_REQUEST).send(`No se pudo rankear el evento.`);
-        res.status(StatusCodes.NOT_FOUND).send(`No se encontro un evento para rankear .`);
-        respuesta = res.status(error.status || 500).json({ message: error.message });
+        if (error.status === 404) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: error.message });
+        }
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'No se pudo rankear el evento.' });
     }
-    return respuesta;
 });
+
 
 
 export default router;
