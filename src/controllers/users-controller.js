@@ -1,5 +1,6 @@
 import {Router} from 'express';
 import jwt from 'jsonwebtoken';
+import { StatusCodes } from 'http-status-codes';
 import UserService from './../services/users-service.js';
 
 const router = Router();
@@ -91,6 +92,18 @@ router.post('/register', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+router.get('/:id', async (req, res) => {
+    let respuesta;
+    let id = req.params.id;
+    const returnEntity = await svc.getByIdAsync(id);
+    if (returnEntity != null){
+      respuesta = res.status(StatusCodes.OK).json(returnEntity);
+    } else {
+      respuesta = res.status(StatusCodes.NOT_FOUND).send(`no se encontro la entidad (id:${id}).`);
+    }
+    return respuesta;
+  })
 
 
 export default router;
