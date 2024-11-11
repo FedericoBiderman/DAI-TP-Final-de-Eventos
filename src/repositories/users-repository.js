@@ -41,6 +41,30 @@ export default class UserRepository {
         return returnEntity;
     }
 
+
+    /*
+    getProfileAsync = async (id) => {
+        console.log(`UserRepository.getProfileAsync(${id})`);
+        let returnEntity = null;
+        const client = new Client(DBConfig);
+        try{
+            await client.connect();
+            const sql = `SELECT * FROM users WHERE id=$1`;
+            const values = [id];
+            const result = await client.query(sql, values);
+            await client.end();
+            if(result.rows.length > 0){
+                returnEntity = result.rows[0];
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        console.log("returnEntity", returnEntity)
+        return returnEntity;
+    }
+    */
+    
+
     createUser = async (entity) => {
         console.log(`UserRepository.createUser(${JSON.stringify(entity)})`); 
         let rowsAffected = 0;
@@ -71,5 +95,5 @@ export default class UserRepository {
         }
         return rowsAffected;
     }
-}
 
+}

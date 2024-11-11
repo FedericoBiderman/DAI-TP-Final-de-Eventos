@@ -2,6 +2,7 @@ import {Router} from 'express';
 import jwt from 'jsonwebtoken';
 import { StatusCodes } from 'http-status-codes';
 import UserService from './../services/users-service.js';
+import { authenticateToken } from "../middlewares/auth.middleware.js";
 
 const router = Router();
 const svc    = new UserService();
@@ -104,6 +105,21 @@ router.get('/:id', async (req, res) => {
     }
     return respuesta;
   })
+
+
+  router.get('/profile/data', authenticateToken, async (req, res) => {
+    let respuesta;
+    console.log("Peofile");
+    let id = req.user.id;
+    console.log("id:", id);
+    const returnEntity = await svc.getByIdAsync(id);
+    if (returnEntity != null){
+      respuesta = res.status(StatusCodes.OK).json(returnEntity);
+    } else {
+      respuesta = res.status(StatusCodes.NOT_FOUND).send(`no se encontro la entidad (id:${id}).`);
+    }
+    return respuesta;
+  })  
 
 
 export default router;
