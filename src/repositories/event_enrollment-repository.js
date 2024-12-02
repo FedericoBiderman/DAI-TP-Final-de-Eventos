@@ -51,6 +51,7 @@ export default class EventEnrollmentRepository {
     registerUserAsync = async (eventId, userId, registrationDateTime) => {
         console.log(`EventEnrollmentRepository.registerUserAsync(${eventId}, ${userId}, ${registrationDateTime})`);
         const client = new Client(DBConfig);
+        console.log("registerUserAsync");
         try {
             await client.connect();
             const sql = `
@@ -72,6 +73,7 @@ export default class EventEnrollmentRepository {
     removeUserAsync = async (eventId, userId) => {
         console.log(`EventEnrollmentRepository.removeUserAsync(${eventId}, ${userId})`);
         const client = new Client(DBConfig);
+        console.log("removeUserAsync");
         try {
             await client.connect();
             const sql = `
