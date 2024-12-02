@@ -5,7 +5,7 @@
 -- Dumped from database version 16.2
 -- Dumped by pg_dump version 16.0
 
--- Started on 2024-11-15 10:43:08
+-- Started on 2024-12-02 10:03:26
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -42,7 +42,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 215 (class 1259 OID 16500)
+-- TOC entry 215 (class 1259 OID 16399)
 -- Name: event_categories; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -56,7 +56,7 @@ CREATE TABLE public.event_categories (
 ALTER TABLE public.event_categories OWNER TO postgres;
 
 --
--- TOC entry 216 (class 1259 OID 16505)
+-- TOC entry 216 (class 1259 OID 16404)
 -- Name: event_categories_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -81,7 +81,7 @@ ALTER SEQUENCE public.event_categories_id_seq OWNED BY public.event_categories.i
 
 
 --
--- TOC entry 217 (class 1259 OID 16506)
+-- TOC entry 217 (class 1259 OID 16405)
 -- Name: event_enrollments; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -100,7 +100,7 @@ CREATE TABLE public.event_enrollments (
 ALTER TABLE public.event_enrollments OWNER TO postgres;
 
 --
--- TOC entry 218 (class 1259 OID 16511)
+-- TOC entry 218 (class 1259 OID 16410)
 -- Name: event_enrollments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -125,7 +125,7 @@ ALTER SEQUENCE public.event_enrollments_id_seq OWNED BY public.event_enrollments
 
 
 --
--- TOC entry 219 (class 1259 OID 16512)
+-- TOC entry 219 (class 1259 OID 16411)
 -- Name: event_locations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -144,7 +144,7 @@ CREATE TABLE public.event_locations (
 ALTER TABLE public.event_locations OWNER TO postgres;
 
 --
--- TOC entry 220 (class 1259 OID 16517)
+-- TOC entry 220 (class 1259 OID 16416)
 -- Name: event_locations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -169,7 +169,7 @@ ALTER SEQUENCE public.event_locations_id_seq OWNED BY public.event_locations.id;
 
 
 --
--- TOC entry 221 (class 1259 OID 16518)
+-- TOC entry 221 (class 1259 OID 16417)
 -- Name: event_tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -183,7 +183,7 @@ CREATE TABLE public.event_tags (
 ALTER TABLE public.event_tags OWNER TO postgres;
 
 --
--- TOC entry 222 (class 1259 OID 16521)
+-- TOC entry 222 (class 1259 OID 16420)
 -- Name: event_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -208,7 +208,7 @@ ALTER SEQUENCE public.event_tags_id_seq OWNED BY public.event_tags.id;
 
 
 --
--- TOC entry 223 (class 1259 OID 16522)
+-- TOC entry 223 (class 1259 OID 16421)
 -- Name: events; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -230,7 +230,7 @@ CREATE TABLE public.events (
 ALTER TABLE public.events OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 16527)
+-- TOC entry 224 (class 1259 OID 16426)
 -- Name: events_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -255,7 +255,7 @@ ALTER SEQUENCE public.events_id_seq OWNED BY public.events.id;
 
 
 --
--- TOC entry 225 (class 1259 OID 16528)
+-- TOC entry 225 (class 1259 OID 16427)
 -- Name: locations; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -271,7 +271,7 @@ CREATE TABLE public.locations (
 ALTER TABLE public.locations OWNER TO postgres;
 
 --
--- TOC entry 226 (class 1259 OID 16533)
+-- TOC entry 226 (class 1259 OID 16432)
 -- Name: locations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -296,7 +296,7 @@ ALTER SEQUENCE public.locations_id_seq OWNED BY public.locations.id;
 
 
 --
--- TOC entry 227 (class 1259 OID 16534)
+-- TOC entry 227 (class 1259 OID 16433)
 -- Name: provinces; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -313,7 +313,7 @@ CREATE TABLE public.provinces (
 ALTER TABLE public.provinces OWNER TO postgres;
 
 --
--- TOC entry 228 (class 1259 OID 16539)
+-- TOC entry 228 (class 1259 OID 16438)
 -- Name: provinces_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -338,7 +338,7 @@ ALTER SEQUENCE public.provinces_id_seq OWNED BY public.provinces.id;
 
 
 --
--- TOC entry 229 (class 1259 OID 16540)
+-- TOC entry 229 (class 1259 OID 16439)
 -- Name: tags; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -351,7 +351,7 @@ CREATE TABLE public.tags (
 ALTER TABLE public.tags OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 16545)
+-- TOC entry 230 (class 1259 OID 16444)
 -- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -376,7 +376,7 @@ ALTER SEQUENCE public.tags_id_seq OWNED BY public.tags.id;
 
 
 --
--- TOC entry 231 (class 1259 OID 16546)
+-- TOC entry 231 (class 1259 OID 16445)
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -392,7 +392,7 @@ CREATE TABLE public.users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- TOC entry 232 (class 1259 OID 16551)
+-- TOC entry 232 (class 1259 OID 16450)
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -417,7 +417,7 @@ ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
 --
--- TOC entry 4674 (class 2604 OID 16552)
+-- TOC entry 4674 (class 2604 OID 16451)
 -- Name: event_categories id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -425,7 +425,7 @@ ALTER TABLE ONLY public.event_categories ALTER COLUMN id SET DEFAULT nextval('pu
 
 
 --
--- TOC entry 4675 (class 2604 OID 16553)
+-- TOC entry 4675 (class 2604 OID 16452)
 -- Name: event_enrollments id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -433,7 +433,7 @@ ALTER TABLE ONLY public.event_enrollments ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
--- TOC entry 4676 (class 2604 OID 16554)
+-- TOC entry 4676 (class 2604 OID 16453)
 -- Name: event_locations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -441,7 +441,7 @@ ALTER TABLE ONLY public.event_locations ALTER COLUMN id SET DEFAULT nextval('pub
 
 
 --
--- TOC entry 4677 (class 2604 OID 16555)
+-- TOC entry 4677 (class 2604 OID 16454)
 -- Name: event_tags id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -449,7 +449,7 @@ ALTER TABLE ONLY public.event_tags ALTER COLUMN id SET DEFAULT nextval('public.e
 
 
 --
--- TOC entry 4678 (class 2604 OID 16556)
+-- TOC entry 4678 (class 2604 OID 16455)
 -- Name: events id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -457,7 +457,7 @@ ALTER TABLE ONLY public.events ALTER COLUMN id SET DEFAULT nextval('public.event
 
 
 --
--- TOC entry 4679 (class 2604 OID 16557)
+-- TOC entry 4679 (class 2604 OID 16456)
 -- Name: locations id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -465,7 +465,7 @@ ALTER TABLE ONLY public.locations ALTER COLUMN id SET DEFAULT nextval('public.lo
 
 
 --
--- TOC entry 4680 (class 2604 OID 16558)
+-- TOC entry 4680 (class 2604 OID 16457)
 -- Name: provinces id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -473,7 +473,7 @@ ALTER TABLE ONLY public.provinces ALTER COLUMN id SET DEFAULT nextval('public.pr
 
 
 --
--- TOC entry 4681 (class 2604 OID 16559)
+-- TOC entry 4681 (class 2604 OID 16458)
 -- Name: tags id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -481,7 +481,7 @@ ALTER TABLE ONLY public.tags ALTER COLUMN id SET DEFAULT nextval('public.tags_id
 
 
 --
--- TOC entry 4682 (class 2604 OID 16560)
+-- TOC entry 4682 (class 2604 OID 16459)
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -489,7 +489,7 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 
 
 --
--- TOC entry 4853 (class 0 OID 16500)
+-- TOC entry 4853 (class 0 OID 16399)
 -- Dependencies: 215
 -- Data for Name: event_categories; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -507,7 +507,7 @@ INSERT INTO public.event_categories VALUES (11, 'Obras Teatrales', 100);
 
 
 --
--- TOC entry 4855 (class 0 OID 16506)
+-- TOC entry 4855 (class 0 OID 16405)
 -- Dependencies: 217
 -- Data for Name: event_enrollments; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -575,7 +575,7 @@ INSERT INTO public.event_enrollments VALUES (21, 35, 23, 'Registrado', '2023-11-
 
 
 --
--- TOC entry 4857 (class 0 OID 16512)
+-- TOC entry 4857 (class 0 OID 16411)
 -- Dependencies: 219
 -- Data for Name: event_locations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -591,7 +591,7 @@ INSERT INTO public.event_locations VALUES (9, 3355, 'Teatro Apolo', 'Av. Corrien
 
 
 --
--- TOC entry 4859 (class 0 OID 16518)
+-- TOC entry 4859 (class 0 OID 16417)
 -- Dependencies: 221
 -- Data for Name: event_tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -603,7 +603,7 @@ INSERT INTO public.event_tags VALUES (5, 8, 2);
 
 
 --
--- TOC entry 4861 (class 0 OID 16522)
+-- TOC entry 4861 (class 0 OID 16421)
 -- Dependencies: 223
 -- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -613,7 +613,6 @@ INSERT INTO public.events VALUES (7, 'Tan Bionica', 'Tan Bionica agrega una noch
 INSERT INTO public.events VALUES (6, 'Taylor Swift', 'Taylor Swift viene a Argentina el 9, 10 y 12 de noviembre de 2023.', 3, 4, '2023-11-09 00:00:00', 120, 50000, B'1', 120000, 1);
 INSERT INTO public.events VALUES (13, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-13 00:00:00', 140, 25000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (14, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-14 00:00:00', 140, 25000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (9, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-03 00:00:00', 120, 150000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (10, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-29 00:00:00', 120, 150000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (11, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-30 00:00:00', 120, 150000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (12, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2024-05-31 00:00:00', 120, 150000, B'1', 12000, 1);
@@ -634,13 +633,7 @@ INSERT INTO public.events VALUES (28, 'Cuarteto de Nos', 'El público de Argenti
 INSERT INTO public.events VALUES (29, 'Cuarteto de Nos', 'El público de Argentina se hizo escuchar y cuando comenzaron los anuncios de fechas, reclamaron el suyo. Así que luego de agotar anticipadamente 2 Movistar Arena en menos de un año, Cuarteto cumple y anuncia su fecha para Buenos Aires el día sábado 31 de Agosto a las 21:00hs en el Movistar Arena', 3, 2, '2024-09-01 00:00:00', 100, 40000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (33, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-16 00:00:00', 100, 40000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (34, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-21 00:00:00', 100, 40000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (35, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-22 00:00:00', 100, 40000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (36, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-23 00:00:00', 100, 40000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (37, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-24 00:00:00', 100, 40000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (38, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-25 00:00:00', 100, 40000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (39, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2024-09-26 00:00:00', 100, 40000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (40, 'KEANE', 'Una de las bandas más importantes de Gran Bretaña vuelve para interpretar uno de los álbumes más importantes de su carrera Hopes and Fears.', 3, 2, '2024-11-14 00:00:00', 100, 60000, B'1', 12000, 1);
-INSERT INTO public.events VALUES (41, 'David Bisbal', 'David Bisbal agotó todas sus localidades para su esperado regreso y agregó una nueva fecha en Movistar Arena para 2024.', 3, 2, '2024-11-21 00:00:00', 100, 70000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (9, 'Emilia', 'Emilia presenta su nueva gira ".MP3" en Buenos Aires después de su exitoso Tour 2023 que abarcó 22 fechas en diversos países. Con producción de Fenix Entertainment, la gira promete una puesta en escena impactante, destacando la escenografía, vestuario y coreografías que caracterizan los shows de Emilia.', 3, 2, '2025-05-03 00:00:00', 120, 150000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (15, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-15 00:00:00', 140, 25000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (16, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-20 00:00:00', 140, 25000, B'1', 12000, 1);
 INSERT INTO public.events VALUES (17, 'La Konga', 'La agrupación argentina de cuarteto más convocante de Argentina hará bailar el Movistar Arena al ritmo de todos los clásicos de sus más de dos décadas de éxito.', 3, 2, '2024-05-21 00:00:00', 140, 25000, B'1', 12000, 1);
@@ -678,10 +671,17 @@ INSERT INTO public.events VALUES (61, 'Moldavsky ', 'El top top top del humor vu
 INSERT INTO public.events VALUES (62, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-15 00:00:00', 110, 10000, B'1', 450, 1);
 INSERT INTO public.events VALUES (63, 'Moldavsky ', 'El top top top del humor vuelve -all in- al Teatro Apolo para seguir apostando a una temporada a pura risa. Las vacaciones en familia, la sala de espera del doctor, lo difícil que es adaptarse al mundo millenial y la mejor música a cargo de la inigualable Valentín Gómez. Moldavsky estrena su nuevo show en el Teatro Apolo, para reírse con -Lo Mejor de mí-.', 11, 9, '2024-06-16 00:00:00', 110, 10000, B'1', 450, 1);
 INSERT INTO public.events VALUES (67, 'Nuevo Evento de DAI', 'Descripcion de Nuevo Evento de DAI', 3, 4, '2024-11-12 03:00:00', 120, 50000, B'1', 120000, 14);
+INSERT INTO public.events VALUES (35, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2025-09-22 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (36, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2025-09-23 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (37, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2025-09-24 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (38, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2025-09-25 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (39, 'Flor Bertotti', 'La gira, que ha sido un rotundo éxito con múltiples sold outs en diversas ciudades, ahora se prepara para su presentación inolvidable en el Movistar Arena. Flor Bertotti en Concierto, promete llevarte en un viaje musical lleno de emoción y alegría, recordando sus grandes éxitos y presentando material fresco que cautivará a todos los fanáticos de la talentosa actriz y cantante.', 3, 2, '2025-09-26 00:00:00', 100, 40000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (40, 'KEANE', 'Una de las bandas más importantes de Gran Bretaña vuelve para interpretar uno de los álbumes más importantes de su carrera Hopes and Fears.', 3, 2, '2025-11-14 00:00:00', 100, 60000, B'1', 12000, 1);
+INSERT INTO public.events VALUES (41, 'David Bisbal', 'David Bisbal agotó todas sus localidades para su esperado regreso y agregó una nueva fecha en Movistar Arena para 2024.', 3, 2, '2025-11-21 00:00:00', 100, 70000, B'1', 12000, 1);
 
 
 --
--- TOC entry 4863 (class 0 OID 16528)
+-- TOC entry 4863 (class 0 OID 16427)
 -- Dependencies: 225
 -- Data for Name: locations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4726,7 +4726,7 @@ INSERT INTO public.locations VALUES (4037, 'Yerba Buena - Marcos Paz', 90, -26.8
 
 
 --
--- TOC entry 4865 (class 0 OID 16534)
+-- TOC entry 4865 (class 0 OID 16433)
 -- Dependencies: 227
 -- Data for Name: provinces; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4758,7 +4758,7 @@ INSERT INTO public.provinces VALUES (90, 'Provincia Modificada 90', 'Provincia M
 
 
 --
--- TOC entry 4867 (class 0 OID 16540)
+-- TOC entry 4867 (class 0 OID 16439)
 -- Dependencies: 229
 -- Data for Name: tags; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4768,7 +4768,7 @@ INSERT INTO public.tags VALUES (2, 'pop');
 
 
 --
--- TOC entry 4869 (class 0 OID 16546)
+-- TOC entry 4869 (class 0 OID 16445)
 -- Dependencies: 231
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
@@ -4892,6 +4892,7 @@ INSERT INTO public.users VALUES (116, 'Agustin', 'Yudcovsky', 'agustin@gmail.com
 INSERT INTO public.users VALUES (120, 'Pablo Fabrizio', 'Zurbano', 'pablofabrizio@gmail.com', 'pabzur220');
 INSERT INTO public.users VALUES (121, 'Guillermo', 'Wonka', 'Willy@chocolats.com', 'ompaloompa');
 INSERT INTO public.users VALUES (122, 'Guillermo', 'Wonka', 'Willy@chocolats.com', 'ompaloompa');
+INSERT INTO public.users VALUES (123, 'Federico ', 'Biderman ', 'Fedebider@gmail.com', '12345');
 
 
 --
@@ -4972,11 +4973,11 @@ SELECT pg_catalog.setval('public.tags_id_seq', 2, true);
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.users_id_seq', 122, true);
+SELECT pg_catalog.setval('public.users_id_seq', 123, true);
 
 
 --
--- TOC entry 4684 (class 2606 OID 16562)
+-- TOC entry 4684 (class 2606 OID 16461)
 -- Name: event_categories PK_EventCategories; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4985,7 +4986,7 @@ ALTER TABLE ONLY public.event_categories
 
 
 --
--- TOC entry 4686 (class 2606 OID 16564)
+-- TOC entry 4686 (class 2606 OID 16463)
 -- Name: event_enrollments PK_EventEnrollments; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -4994,7 +4995,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4688 (class 2606 OID 16566)
+-- TOC entry 4688 (class 2606 OID 16465)
 -- Name: event_locations PK_EventLocations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5003,7 +5004,7 @@ ALTER TABLE ONLY public.event_locations
 
 
 --
--- TOC entry 4690 (class 2606 OID 16568)
+-- TOC entry 4690 (class 2606 OID 16467)
 -- Name: event_tags PK_EventTags; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5012,7 +5013,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4692 (class 2606 OID 16570)
+-- TOC entry 4692 (class 2606 OID 16469)
 -- Name: events PK_Events; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5021,7 +5022,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4694 (class 2606 OID 16572)
+-- TOC entry 4694 (class 2606 OID 16471)
 -- Name: locations PK_Locations; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5030,7 +5031,7 @@ ALTER TABLE ONLY public.locations
 
 
 --
--- TOC entry 4696 (class 2606 OID 16574)
+-- TOC entry 4696 (class 2606 OID 16473)
 -- Name: provinces PK_Provinces ; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5039,7 +5040,7 @@ ALTER TABLE ONLY public.provinces
 
 
 --
--- TOC entry 4698 (class 2606 OID 16576)
+-- TOC entry 4698 (class 2606 OID 16475)
 -- Name: tags PK_Tags; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5048,7 +5049,7 @@ ALTER TABLE ONLY public.tags
 
 
 --
--- TOC entry 4700 (class 2606 OID 16578)
+-- TOC entry 4700 (class 2606 OID 16477)
 -- Name: users PK_Users; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5057,7 +5058,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- TOC entry 4701 (class 2606 OID 16579)
+-- TOC entry 4701 (class 2606 OID 16478)
 -- Name: event_enrollments fk_event_enrollments_events; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5066,7 +5067,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4702 (class 2606 OID 16584)
+-- TOC entry 4702 (class 2606 OID 16483)
 -- Name: event_enrollments fk_event_enrollments_users; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5075,7 +5076,7 @@ ALTER TABLE ONLY public.event_enrollments
 
 
 --
--- TOC entry 4703 (class 2606 OID 16589)
+-- TOC entry 4703 (class 2606 OID 16488)
 -- Name: event_locations fk_event_locations_locations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5084,7 +5085,7 @@ ALTER TABLE ONLY public.event_locations
 
 
 --
--- TOC entry 4704 (class 2606 OID 16594)
+-- TOC entry 4704 (class 2606 OID 16493)
 -- Name: event_tags fk_event_tags_events; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5093,7 +5094,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4705 (class 2606 OID 16599)
+-- TOC entry 4705 (class 2606 OID 16498)
 -- Name: event_tags fk_event_tags_tags; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5102,7 +5103,7 @@ ALTER TABLE ONLY public.event_tags
 
 
 --
--- TOC entry 4706 (class 2606 OID 16604)
+-- TOC entry 4706 (class 2606 OID 16503)
 -- Name: events fk_events_event_categories; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5111,7 +5112,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4707 (class 2606 OID 16609)
+-- TOC entry 4707 (class 2606 OID 16508)
 -- Name: events fk_events_event_locations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5120,7 +5121,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4708 (class 2606 OID 16614)
+-- TOC entry 4708 (class 2606 OID 16513)
 -- Name: events fk_events_users; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5129,7 +5130,7 @@ ALTER TABLE ONLY public.events
 
 
 --
--- TOC entry 4709 (class 2606 OID 16619)
+-- TOC entry 4709 (class 2606 OID 16518)
 -- Name: locations fk_locations_provinces; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -5137,7 +5138,7 @@ ALTER TABLE ONLY public.locations
     ADD CONSTRAINT fk_locations_provinces FOREIGN KEY (id_province) REFERENCES public.provinces(id);
 
 
--- Completed on 2024-11-15 10:43:08
+-- Completed on 2024-12-02 10:03:26
 
 --
 -- PostgreSQL database dump complete
